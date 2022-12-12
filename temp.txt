@@ -1,0 +1,16 @@
+// проверка аалгоритма записи/чтения буфера FIFO    
+    TempData = ReadRegistrCmt2300(CUS_PKT1);// проверяем пакетный режим
+    Nop();
+    TempData = ReadRegistrCmt2300(CUS_FIFO_CTL);
+    TempData = (unsigned char)(TempData | 0x01); // включеем бит PI_FIFO_RD_WR_SEL
+    WriteRegistrCmt2300(CUS_FIFO_CTL,TempData);
+    TempData = ReadRegistrCmt2300(CUS_FIFO_CTL);// проверяем выставленный флаг SPI_FIFO_RD_WR_SEL
+    Nop();
+    WriteFifoCmt2300(RxFifoCmt2300, 6);              // пытаемся записать TX FIFO
+    TempData = ReadRegistrCmt2300(CUS_FIFO_CTL);
+    TempData = 0x08;                                // снимаем бит SPI_FIFO_RD_WR_SEL и выставляем бит FIFO_TX_RD_EN
+    WriteRegistrCmt2300(CUS_FIFO_CTL,TempData);
+    TempData = ReadRegistrCmt2300(CUS_FIFO_CTL);// проверяем биты SPI_FIFO_RD_WR_SEL и FIFO_TX_RD_EN
+    Nop();
+    ReadFifoCmt2300(RxFifoCmt2300, 6);               // 
+    Nop();
