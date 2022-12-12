@@ -101,8 +101,14 @@ void main(void) {
             TempData = (TempData & 0x78);
             if(TempData){
                 Nop();
+                ModeCmt2300 = GotoNewModeCmt2300(_STBY);
+                WriteRegistrCmt2300(CUS_FIFO_CTL,0); // снимаем флаг записи в FIFO
+                ReadFifoCmt2300(RxFifoCmt2300, 32);
                 ClrRxFifoCmt2300();
                 LED_A1 = !LED_A1;
+                ModeCmt2300 = CheckModeCmt2300();
+//                ReadFifoCmt2300(RxFifoCmt2300, 32);
+                Nop();
             }
             Interval._100ms = 0;
         }

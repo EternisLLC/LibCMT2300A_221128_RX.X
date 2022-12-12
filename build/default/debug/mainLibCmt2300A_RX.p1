@@ -1,15 +1,68 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"2040 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f25k20.h
-[s S77 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S77 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
-"2050
-[s S78 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S78 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
-"2039
-[u S76 `S77 1 `S78 1 ]
-[n S76 . . . ]
-"2061
-[v _TRISCbits `VS76 ~T0 @X0 0 e@3988 ]
+[p mainexit ]
+"19 InitProcessor.h
+[v _ProcessorInit `(v ~T0 @X0 0 ef ]
+"7
+[s S270 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S270 . _1ms _10ms _100ms _1s ]
+"17
+[v _Interval `S270 ~T0 @X0 0 e ]
+"159 LibCmt2300.h
+[v _WriteRegistrCmt2300 `(v ~T0 @X0 0 ef2`uc`uc ]
+"74
+[v _ModeCmt2300 `uc ~T0 @X0 0 e ]
+"161
+[v _CheckModeCmt2300 `(uc ~T0 @X0 0 ef ]
+"163
+[v _InitCmt2300 `(v ~T0 @X0 0 ef ]
+"162
+[v _GotoNewModeCmt2300 `(uc ~T0 @X0 0 ef1`uc ]
+"43 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h
+[v ___nop `(v ~T0 @X0 0 ef ]
+[p i ___nop ]
+"160 LibCmt2300.h
+[v _ReadRegistrCmt2300 `(uc ~T0 @X0 0 ef1`uc ]
+"165
+[v _WriteFifoCmt2300 `(v ~T0 @X0 0 ef2`*uc`uc ]
+"157
+[v _TxFifoCmt2300 `uc ~T0 @X0 -> 0 `x e ]
+"167
+[v _WritePktLength `(v ~T0 @X0 0 ef1`uc ]
+"168
+[v _WriteNodeId `(v ~T0 @X0 0 ef1`uc ]
+[v F2848 `(v ~T0 @X0 1 tf1`ul ]
+"164 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h
+[v __delay `JF2848 ~T0 @X0 0 e ]
+[p i __delay ]
+"1255 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f25k20.h
+[s S56 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S56 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 LATA7 ]
+"1265
+[s S57 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S57 . LA0 LA1 LA2 LA3 LA4 LA5 LA6 LA7 ]
+"1254
+[u S55 `S56 1 `S57 1 ]
+[n S55 . . . ]
+"1276
+[v _LATAbits `VS55 ~T0 @X0 0 e@3977 ]
+"164 LibCmt2300.h
+[v _ReadFifoCmt2300 `(v ~T0 @X0 0 ef2`*uc`uc ]
+"156
+[v _RxFifoCmt2300 `uc ~T0 @X0 -> 0 `x e ]
+"6184 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f25k20.h
+[s S264 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S264 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+"6194
+[s S265 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S265 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+"6204
+[s S266 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S266 . . GIEL GIEH ]
+"6183
+[u S263 `S264 1 `S265 1 `S266 1 ]
+[n S263 . . . . ]
+"6210
+[v _INTCONbits `VS263 ~T0 @X0 0 e@4082 ]
 "1367
 [s S59 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S59 . LATB0 LATB1 LATB2 LATB3 LATB4 LATB5 LATB6 LATB7 ]
@@ -21,65 +74,34 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S58 . . . ]
 "1388
 [v _LATBbits `VS58 ~T0 @X0 0 e@3978 ]
-"1479
-[s S62 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S62 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
-"1489
-[s S63 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S63 . LC0 LC1 LC2 LC3 LC4 LC5 LC6 LC7 ]
-"1478
-[u S61 `S62 1 `S63 1 ]
-[n S61 . . . ]
-"1500
-[v _LATCbits `VS61 ~T0 @X0 0 e@3979 ]
-"992
-[s S41 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S41 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
-"1002
-[s S42 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S42 . T1OSO T1OSI CCP1 SCK SDI SDO TX RX ]
-"1012
-[s S43 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S43 . T13CKI CCP2 P1A SCL SDA . CK DT ]
-"1022
-[s S44 :1 `uc 1 ]
-[n S44 . T1CKI ]
-"1025
-[s S45 :1 `uc 1 ]
-[n S45 . T3CKI ]
-"1028
-[s S46 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S46 . . PA2 PA1 ]
-"991
-[u S40 `S41 1 `S42 1 `S43 1 `S44 1 `S45 1 `S46 1 ]
-[n S40 . . . . . . . ]
-"1034
-[v _PORTCbits `VS40 ~T0 @X0 0 e@3970 ]
-"78 LibCmt2300.h
-[s S271 :2 `uc 1 :2 `uc 1 :2 `uc 1 ]
-[n S271 . gpio1_sel gpio2_sel gpio3_sel ]
-"77
-[u S270 `S271 1 `uc 1 ]
-[n S270 . . ByteIO ]
-"103
-[s S273 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S273 . pkt_done crc_ok node_ok sync_ok preamb_ok tx_done rx_tmo sl_tmo ]
-"102
-[u S272 `S273 1 `uc 1 ]
-[n S272 . . ByteINT ]
-"145
-[s S275 :5 `uc 1 :1 `uc 1 :2 `uc 1 ]
-[n S275 . INT_SEL INT_POLAR reserv ]
-"144
-[u S274 `S275 1 `uc 1 ]
-[n S274 . . ByteIntCTL ]
-"43 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18.h
-[v ___nop `(v ~T0 @X0 0 ef ]
-[p i ___nop ]
-[v F2848 `(v ~T0 @X0 1 tf1`ul ]
-"164
-[v __delay `JF2848 ~T0 @X0 0 e ]
-[p i __delay ]
+"2327
+[s S86 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S86 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE ]
+"2336
+[s S87 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S87 . . TX1IE RC1IE ]
+"2326
+[u S85 `S86 1 `S87 1 ]
+[n S85 . . . ]
+"2342
+[v _PIE1bits `VS85 ~T0 @X0 0 e@3997 ]
+"2398
+[s S89 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S89 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF ]
+"2407
+[s S90 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S90 . . TX1IF RC1IF ]
+"2397
+[u S88 `S89 1 `S90 1 ]
+[n S88 . . . ]
+"2413
+[v _PIR1bits `VS88 ~T0 @X0 0 e@3998 ]
+"13 InitProcessor.h
+[v _Counter1ms `uc ~T0 @X0 0 e ]
+"14
+[v _Counter10ms `uc ~T0 @X0 0 e ]
+"15
+[v _Counter100ms `uc ~T0 @X0 0 e ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2742,7 +2764,64 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 164: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
+"10 SetConfigBitsPic18f25k20.h
+[p x FOSC=HSPLL ]
+[p x FCMEN=OFF ]
+[p x IESO=ON ]
+"12
+[p x PWRT=OFF ]
+[p x BOREN=OFF ]
+[p x BORV=22 ]
+"14
+[p x WDTEN=OFF ]
+[p x WDTPS=1024 ]
+"16
+[p x CCP2MX=PORTC ]
+[p x PBADEN=OFF ]
+[p x LPT1OSC=OFF ]
+[p x HFOFST=OFF ]
+[p x MCLRE=ON ]
+"18
+[p x STVREN=OFF ]
+[p x LVP=OFF ]
+[p x XINST=OFF ]
+[p x DEBUG=ON ]
+"20
+[p x CP0=OFF ]
+[p x CP1=OFF ]
+[p x CP2=OFF ]
+[p x CP3=OFF ]
+"22
+[p x CPB=OFF ]
+[p x CPD=OFF ]
+"24
+[p x WRT0=OFF ]
+[p x WRT1=OFF ]
+[p x WRT2=OFF ]
+[p x WRT3=OFF ]
+"26
+[p x WRTC=OFF ]
+[p x WRTB=OFF ]
+[p x WRTD=OFF ]
+"28
+[p x EBTR0=OFF ]
+[p x EBTR1=OFF ]
+[p x EBTR2=OFF ]
+[p x EBTR3=OFF ]
+"30
+[p x EBTRB=OFF ]
 [; ;ConfigPinsLibCmt2300A.h: 76: void InitPinsCMT2300(void);
+[; ;InitProcessor.h: 7: typedef struct {
+[; ;InitProcessor.h: 8: unsigned char _1ms :1;
+[; ;InitProcessor.h: 9: unsigned char _10ms :1;
+[; ;InitProcessor.h: 10: unsigned char _100ms :1;
+[; ;InitProcessor.h: 11: unsigned char _1s :1;
+[; ;InitProcessor.h: 12: }interval_t;
+[; ;InitProcessor.h: 13: extern unsigned char Counter1ms;
+[; ;InitProcessor.h: 14: extern unsigned char Counter10ms;
+[; ;InitProcessor.h: 15: extern unsigned char Counter100ms;
+[; ;InitProcessor.h: 17: extern interval_t Interval;
+[; ;InitProcessor.h: 19: void ProcessorInit(void);
 [; ;LibCmt2300.h: 74: extern unsigned char ModeCmt2300;
 [; ;LibCmt2300.h: 77: typedef union{
 [; ;LibCmt2300.h: 78: struct{
@@ -2788,1131 +2867,383 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LibCmt2300.h: 165: void WriteFifoCmt2300(unsigned char * data, unsigned char counter);
 [; ;LibCmt2300.h: 167: void WritePktLength(unsigned char length);
 [; ;LibCmt2300.h: 168: void WriteNodeId(unsigned char room);
-"8 LibCmt2300.c
-[v _ModeCmt2300 `uc ~T0 @X0 1 e ]
-[i _ModeCmt2300
+"15 mainLibCmt2300A_RX.c
+[v _TempAddr `uc ~T0 @X0 1 e ]
+[i _TempAddr
 -> -> 0 `i `uc
 ]
-[; ;LibCmt2300.c: 8: unsigned char ModeCmt2300 = 0;
-"9
-[v _RxFifoCmt2300 `uc ~T0 @X0 -> 32 `i e ]
-[i _RxFifoCmt2300
-:U ..
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
-..
-]
-[; ;LibCmt2300.c: 9: unsigned char RxFifoCmt2300[32]= {0,0,0,0,0,0,0};
-"11
-[v _TxFifoCmt2300 `uc ~T0 @X0 -> 32 `i e ]
-[i _TxFifoCmt2300
-:U ..
--> -> 1 `i `uc
--> -> 5 `i `uc
--> -> 48 `i `uc
--> -> 69 `i `uc
--> -> 0 `i `uc
--> -> 96 `i `uc
--> -> 0 `i `uc
--> -> 2 `i `uc
--> -> 16 `i `uc
-..
-]
-[; ;LibCmt2300.c: 11: unsigned char TxFifoCmt2300[32] = {0x01,0x05,0x30,0x45,0x00,0x60,0x00,0x02,0x10};
-"13
-[v _WriteRegistrCmt2300 `(v ~T0 @X0 1 ef2`uc`uc ]
-{
-[; ;LibCmt2300.c: 13: void WriteRegistrCmt2300(unsigned char addr, unsigned char data){
-[e :U _WriteRegistrCmt2300 ]
-[v _addr `uc ~T0 @X0 1 r1 ]
-[v _data `uc ~T0 @X0 1 r2 ]
-[f ]
-"14
-[v _temp `ui ~T0 @X0 1 a ]
-"15
-[v _mask `ui ~T0 @X0 1 a ]
-[; ;LibCmt2300.c: 14: unsigned int temp;
-[; ;LibCmt2300.c: 15: unsigned int mask = 0x8000;
-[e = _mask -> 32768 `ui ]
+[; ;mainLibCmt2300A_RX.c: 15: unsigned char TempAddr = 0;
 "16
-[v _i `uc ~T0 @X0 1 a ]
-[; ;LibCmt2300.c: 16: unsigned char i;
-[; ;LibCmt2300.c: 17: temp = (unsigned int)(addr & 0x7F);
-"17
-[e = _temp -> & -> _addr `i -> 127 `i `ui ]
-[; ;LibCmt2300.c: 18: temp = temp << 8;
+[v _TempData `uc ~T0 @X0 1 e ]
+[i _TempData
+-> -> 0 `i `uc
+]
+[; ;mainLibCmt2300A_RX.c: 16: unsigned char TempData = 0;
 "18
-[e = _temp << _temp -> 8 `i ]
-[; ;LibCmt2300.c: 19: temp = temp + data;
-"19
-[e = _temp + _temp -> _data `ui ]
-[; ;LibCmt2300.c: 20: TRISCbits.TRISC5 = 0;
-"20
-[e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
-[; ;LibCmt2300.c: 21: LATBbits.LATB1 = 0;
-"21
-[e = . . _LATBbits 0 1 -> -> 0 `i `uc ]
-[; ;LibCmt2300.c: 22: if((mask & temp)){
-"22
-[e $ ! != & _mask _temp -> -> 0 `i `ui 277  ]
-{
-[; ;LibCmt2300.c: 23: LATCbits.LATC5 = 1;
-"23
-[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
-"24
-}
-[; ;LibCmt2300.c: 24: }else{
-[e $U 278  ]
-[e :U 277 ]
-{
-[; ;LibCmt2300.c: 25: LATCbits.LATC5 = 0;
+[v _CounterMs `uc ~T0 @X0 1 e ]
+[i _CounterMs
+-> -> 0 `i `uc
+]
+[; ;mainLibCmt2300A_RX.c: 18: unsigned char CounterMs = 0;
+[; ;mainLibCmt2300A_RX.c: 23: void low_priority interrupt myLoIsr(void);
+[; ;mainLibCmt2300A_RX.c: 24: void high_priority interrupt myHiIsr(void);
+[v $root$_main `(v ~T0 @X0 0 e ]
 "25
-[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
-"26
-}
-[e :U 278 ]
-[; ;LibCmt2300.c: 26: }
-[; ;LibCmt2300.c: 27: for(i = 0; i < 16; i++){
-"27
+[v _main `(v ~T0 @X0 1 ef ]
 {
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 16 `i 279  ]
-[e $U 280  ]
-[e :U 279 ]
-{
-[; ;LibCmt2300.c: 28: LATCbits.LATC3 = 1;
-"28
-[e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
-[; ;LibCmt2300.c: 29: mask = (unsigned int)(mask>>1);
-"29
-[e = _mask >> _mask -> 1 `i ]
-[; ;LibCmt2300.c: 30: LATCbits.LATC3 = 0;
-"30
-[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
-[; ;LibCmt2300.c: 31: if((mask & temp)){
-"31
-[e $ ! != & _mask _temp -> -> 0 `i `ui 282  ]
-{
-[; ;LibCmt2300.c: 32: LATCbits.LATC5 = 1;
-"32
-[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
-"33
-}
-[; ;LibCmt2300.c: 33: }else{
-[e $U 283  ]
-[e :U 282 ]
-{
-[; ;LibCmt2300.c: 34: LATCbits.LATC5 = 0;
-"34
-[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
-"35
-}
-[e :U 283 ]
-"36
-}
-"27
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 16 `i 279  ]
-[e :U 280 ]
-"36
-}
-[; ;LibCmt2300.c: 35: }
-[; ;LibCmt2300.c: 36: }
-[; ;LibCmt2300.c: 37: LATCbits.LATC5 = 0;
-"37
-[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
-[; ;LibCmt2300.c: 38: LATBbits.LATB1 = 1;
-"38
-[e = . . _LATBbits 0 1 -> -> 1 `i `uc ]
-[; ;LibCmt2300.c: 39: }
-"39
-[e :UE 276 ]
-}
-"40
-[v _ReadRegistrCmt2300 `(uc ~T0 @X0 1 ef1`uc ]
-{
-[; ;LibCmt2300.c: 40: unsigned char ReadRegistrCmt2300(unsigned char addr){
-[e :U _ReadRegistrCmt2300 ]
-[v _addr `uc ~T0 @X0 1 r1 ]
+[; ;mainLibCmt2300A_RX.c: 25: void main(void) {
+[e :U _main ]
 [f ]
+[; ;mainLibCmt2300A_RX.c: 26: ProcessorInit();
+"26
+[e ( _ProcessorInit ..  ]
+[; ;mainLibCmt2300A_RX.c: 40: while(!Interval._1s);
+"40
+[e $U 278  ]
+[e :U 279 ]
+[e :U 278 ]
+[e $ ! != -> . _Interval 3 `i -> -> -> 0 `i `uc `i 279  ]
+[e :U 280 ]
+[; ;mainLibCmt2300A_RX.c: 41: Interval._1s = 0;
 "41
-[v _data `uc ~T0 @X0 1 a ]
-[; ;LibCmt2300.c: 41: unsigned char data = 0;
-[e = _data -> -> 0 `i `uc ]
-"42
-[v _mask `uc ~T0 @X0 1 a ]
-[; ;LibCmt2300.c: 42: unsigned char mask = 0x80;
-[e = _mask -> -> 128 `i `uc ]
+[e = . _Interval 3 -> -> 0 `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 43: WriteRegistrCmt2300(0x7F, 0xFF);
 "43
-[v _i `uc ~T0 @X0 1 a ]
-[; ;LibCmt2300.c: 43: unsigned char i;
-[; ;LibCmt2300.c: 44: data = (unsigned char)(addr | 0x80);
+[e ( _WriteRegistrCmt2300 (2 , -> -> 127 `i `uc -> -> 255 `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 44: while(!Interval._1s);
 "44
-[e = _data -> | -> _addr `i -> 128 `i `uc ]
-[; ;LibCmt2300.c: 45: TRISCbits.TRISC5 = 0;
+[e $U 281  ]
+[e :U 282 ]
+[e :U 281 ]
+[e $ ! != -> . _Interval 3 `i -> -> -> 0 `i `uc `i 282  ]
+[e :U 283 ]
+[; ;mainLibCmt2300A_RX.c: 45: Interval._1s = 0;
 "45
-[e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
-[; ;LibCmt2300.c: 46: LATBbits.LATB1 = 0;
+[e = . _Interval 3 -> -> 0 `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 46: ModeCmt2300 = CheckModeCmt2300();
 "46
-[e = . . _LATBbits 0 1 -> -> 0 `i `uc ]
-[; ;LibCmt2300.c: 47: if((mask & data)){
+[e = _ModeCmt2300 ( _CheckModeCmt2300 ..  ]
+[; ;mainLibCmt2300A_RX.c: 47: while(!Interval._1s);
 "47
-[e $ ! != & -> _mask `i -> _data `i -> 0 `i 285  ]
-{
-[; ;LibCmt2300.c: 48: LATCbits.LATC5 = 1;
-"48
-[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
-"49
-}
-[; ;LibCmt2300.c: 49: }else{
-[e $U 286  ]
+[e $U 284  ]
 [e :U 285 ]
+[e :U 284 ]
+[e $ ! != -> . _Interval 3 `i -> -> -> 0 `i `uc `i 285  ]
+[e :U 286 ]
+[; ;mainLibCmt2300A_RX.c: 48: Interval._1s = 0;
+"48
+[e = . _Interval 3 -> -> 0 `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 49: if(ModeCmt2300 == 1){
+"49
+[e $ ! == -> _ModeCmt2300 `i -> 1 `i 287  ]
 {
-[; ;LibCmt2300.c: 50: LATCbits.LATC5 = 0;
+[; ;mainLibCmt2300A_RX.c: 50: WriteRegistrCmt2300(0x60, 0x02);
 "50
-[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
+[e ( _WriteRegistrCmt2300 (2 , -> -> 96 `i `uc -> -> 2 `i `uc ]
 "51
 }
-[e :U 286 ]
-[; ;LibCmt2300.c: 51: }
-[; ;LibCmt2300.c: 52: for(i = 0; i < 7; i++){
-"52
-{
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 7 `i 287  ]
-[e $U 288  ]
 [e :U 287 ]
-{
-[; ;LibCmt2300.c: 53: LATCbits.LATC3 = 1;
-"53
-[e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
-[; ;LibCmt2300.c: 54: mask = (unsigned char)(mask>>1);
-"54
-[e = _mask -> >> -> _mask `i -> 1 `i `uc ]
-[; ;LibCmt2300.c: 55: LATCbits.LATC3 = 0;
-"55
-[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
-[; ;LibCmt2300.c: 56: if((mask & data)){
-"56
-[e $ ! != & -> _mask `i -> _data `i -> 0 `i 290  ]
-{
-[; ;LibCmt2300.c: 57: LATCbits.LATC5 = 1;
-"57
-[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
-"58
-}
-[; ;LibCmt2300.c: 58: }else{
-[e $U 291  ]
+[; ;mainLibCmt2300A_RX.c: 51: }
+[; ;mainLibCmt2300A_RX.c: 52: while(!Interval._1s);
+"52
+[e $U 288  ]
+[e :U 289 ]
+[e :U 288 ]
+[e $ ! != -> . _Interval 3 `i -> -> -> 0 `i `uc `i 289  ]
 [e :U 290 ]
+[; ;mainLibCmt2300A_RX.c: 53: Interval._1s = 0;
+"53
+[e = . _Interval 3 -> -> 0 `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 54: ModeCmt2300 = CheckModeCmt2300();
+"54
+[e = _ModeCmt2300 ( _CheckModeCmt2300 ..  ]
+[; ;mainLibCmt2300A_RX.c: 55: if(ModeCmt2300 == 0x02){
+"55
+[e $ ! == -> _ModeCmt2300 `i -> 2 `i 291  ]
 {
-[; ;LibCmt2300.c: 59: LATCbits.LATC5 = 0;
+[; ;mainLibCmt2300A_RX.c: 57: InitCmt2300();
+"57
+[e ( _InitCmt2300 ..  ]
+[; ;mainLibCmt2300A_RX.c: 58: ModeCmt2300 = GotoNewModeCmt2300(0x01);
+"58
+[e = _ModeCmt2300 ( _GotoNewModeCmt2300 (1 -> -> 1 `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 59: ModeCmt2300 = GotoNewModeCmt2300(0x02);
 "59
-[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
+[e = _ModeCmt2300 ( _GotoNewModeCmt2300 (1 -> -> 2 `i `uc ]
 "60
 }
 [e :U 291 ]
-"61
-}
-"52
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 7 `i 287  ]
-[e :U 288 ]
-"61
-}
-[; ;LibCmt2300.c: 60: }
-[; ;LibCmt2300.c: 61: }
-[; ;LibCmt2300.c: 62: LATCbits.LATC3 = 1;
+[; ;mainLibCmt2300A_RX.c: 60: }
+[; ;mainLibCmt2300A_RX.c: 62: __nop();
 "62
-[e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
-[; ;LibCmt2300.c: 63: TRISCbits.TRISC5 = 1;
+[e ( ___nop ..  ]
+[; ;mainLibCmt2300A_RX.c: 63: ModeCmt2300 = GotoNewModeCmt2300(0x04);
 "63
-[e = . . _TRISCbits 0 5 -> -> 1 `i `uc ]
-[; ;LibCmt2300.c: 64: LATCbits.LATC3 = 0;
+[e = _ModeCmt2300 ( _GotoNewModeCmt2300 (1 -> -> 4 `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 64: __nop();
 "64
-[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
-[; ;LibCmt2300.c: 65: data = 0;
-"65
-[e = _data -> -> 0 `i `uc ]
-[; ;LibCmt2300.c: 66: mask = 0x80;
+[e ( ___nop ..  ]
+[; ;mainLibCmt2300A_RX.c: 66: __nop();
 "66
-[e = _mask -> -> 128 `i `uc ]
-[; ;LibCmt2300.c: 67: for(i = 0; i < 8; i++){
-"67
-{
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 8 `i 292  ]
-[e $U 293  ]
-[e :U 292 ]
-{
-[; ;LibCmt2300.c: 68: LATCbits.LATC3 = 1;
+[e ( ___nop ..  ]
+[; ;mainLibCmt2300A_RX.c: 68: __nop();
 "68
-[e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
-[; ;LibCmt2300.c: 69: if(PORTCbits.RC5){
-"69
-[e $ ! != -> . . _PORTCbits 0 5 `i -> -> -> 0 `i `Vuc `i 295  ]
-{
-[; ;LibCmt2300.c: 70: data = (unsigned char)(mask | data);
+[e ( ___nop ..  ]
+[; ;mainLibCmt2300A_RX.c: 70: TempData = ReadRegistrCmt2300(0x6E);
 "70
-[e = _data -> | -> _mask `i -> _data `i `uc ]
-"71
+[e = _TempData ( _ReadRegistrCmt2300 (1 -> -> 110 `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 72: WriteRegistrCmt2300(0x69,0x01);
+"72
+[e ( _WriteRegistrCmt2300 (2 , -> -> 105 `i `uc -> -> 1 `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 73: WriteFifoCmt2300(TxFifoCmt2300, 9);
+"73
+[e ( _WriteFifoCmt2300 (2 , &U _TxFifoCmt2300 -> -> 9 `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 74: TempData = ReadRegistrCmt2300(0x6E);
+"74
+[e = _TempData ( _ReadRegistrCmt2300 (1 -> -> 110 `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 75: __nop();
+"75
+[e ( ___nop ..  ]
+[; ;mainLibCmt2300A_RX.c: 76: WritePktLength(9);
+"76
+[e ( _WritePktLength (1 -> -> 9 `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 77: WriteNodeId(1);
+"77
+[e ( _WriteNodeId (1 -> -> 1 `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 79: ModeCmt2300 = GotoNewModeCmt2300(0x06);
+"79
+[e = _ModeCmt2300 ( _GotoNewModeCmt2300 (1 -> -> 6 `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 82: __nop();
+"82
+[e ( ___nop ..  ]
+[; ;mainLibCmt2300A_RX.c: 83: WriteRegistrCmt2300(0x6C,0x03);
+"83
+[e ( _WriteRegistrCmt2300 (2 , -> -> 108 `i `uc -> -> 3 `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 84: while(1){
+"84
+[e :U 293 ]
+{
+[; ;mainLibCmt2300A_RX.c: 85: if(Interval._1s){
+"85
+[e $ ! != -> . _Interval 3 `i -> -> -> 0 `i `uc `i 295  ]
+{
+[; ;mainLibCmt2300A_RX.c: 86: Interval._1s = 0;
+"86
+[e = . _Interval 3 -> -> 0 `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 87: ModeCmt2300 = CheckModeCmt2300();
+"87
+[e = _ModeCmt2300 ( _CheckModeCmt2300 ..  ]
+[; ;mainLibCmt2300A_RX.c: 88: if(ModeCmt2300 == 0x02){
+"88
+[e $ ! == -> _ModeCmt2300 `i -> 2 `i 296  ]
+{
+[; ;mainLibCmt2300A_RX.c: 90: ModeCmt2300 = GotoNewModeCmt2300(0x03);
+"90
+[e = _ModeCmt2300 ( _GotoNewModeCmt2300 (1 -> -> 3 `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 91: _delay((unsigned long)((350)*(32000000/4000000.0)));
+"91
+[e ( __delay (1 -> * -> -> 350 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
+[; ;mainLibCmt2300A_RX.c: 92: ModeCmt2300 = GotoNewModeCmt2300(0x05);
+"92
+[e = _ModeCmt2300 ( _GotoNewModeCmt2300 (1 -> -> 5 `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 93: LATAbits.LATA2 = !LATAbits.LATA2;
+"93
+[e = . . _LATAbits 0 2 -> -> ! != -> . . _LATAbits 0 2 `i -> -> -> 0 `i `Vuc `i `i `uc ]
+"94
+}
+[e :U 296 ]
+"95
 }
 [e :U 295 ]
-[; ;LibCmt2300.c: 71: }
-[; ;LibCmt2300.c: 72: LATCbits.LATC3 = 0;
-"72
-[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
-[; ;LibCmt2300.c: 73: mask = (unsigned char)(mask>>1);
-"73
-[e = _mask -> >> -> _mask `i -> 1 `i `uc ]
-"74
-}
-"67
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 8 `i 292  ]
-[e :U 293 ]
-"74
-}
-[; ;LibCmt2300.c: 74: }
-[; ;LibCmt2300.c: 75: LATCbits.LATC5 = 0;
-"75
-[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
-[; ;LibCmt2300.c: 76: TRISCbits.TRISC5 = 0;
-"76
-[e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
-[; ;LibCmt2300.c: 77: LATBbits.LATB1 = 1;
-"77
-[e = . . _LATBbits 0 1 -> -> 1 `i `uc ]
-[; ;LibCmt2300.c: 78: return data;
-"78
-[e ) _data ]
-[e $UE 284  ]
-[; ;LibCmt2300.c: 79: }
-"79
-[e :UE 284 ]
-}
-"80
-[v _CheckModeCmt2300 `(uc ~T0 @X0 1 ef ]
+[; ;mainLibCmt2300A_RX.c: 94: }
+[; ;mainLibCmt2300A_RX.c: 95: }
+[; ;mainLibCmt2300A_RX.c: 96: if(Interval._100ms){
+"96
+[e $ ! != -> . _Interval 2 `i -> -> -> 0 `i `uc `i 297  ]
 {
-[; ;LibCmt2300.c: 80: unsigned char CheckModeCmt2300(void){
-[e :U _CheckModeCmt2300 ]
-[f ]
-"81
-[v _temp `uc ~T0 @X0 1 a ]
-[; ;LibCmt2300.c: 81: unsigned char temp;
-[; ;LibCmt2300.c: 82: temp = ReadRegistrCmt2300(0x61);
-"82
-[e = _temp ( _ReadRegistrCmt2300 (1 -> -> 97 `i `uc ]
-[; ;LibCmt2300.c: 83: return (unsigned char)(temp & 0x0F);
-"83
-[e ) -> & -> _temp `i -> 15 `i `uc ]
-[e $UE 296  ]
-[; ;LibCmt2300.c: 84: }
-"84
-[e :UE 296 ]
-}
-"86
-[v _GotoNewModeCmt2300 `(uc ~T0 @X0 1 ef1`uc ]
+[; ;mainLibCmt2300A_RX.c: 97: TempData = ReadRegistrCmt2300(0x6E);
+"97
+[e = _TempData ( _ReadRegistrCmt2300 (1 -> -> 110 `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 98: if(TempData){
+"98
+[e $ ! != -> _TempData `i -> -> -> 0 `i `uc `i 298  ]
 {
-[; ;LibCmt2300.c: 86: unsigned char GotoNewModeCmt2300(unsigned char mode){
-[e :U _GotoNewModeCmt2300 ]
-[v _mode `uc ~T0 @X0 1 r1 ]
-[f ]
-"87
-[v _temp `uc ~T0 @X0 1 a ]
-[; ;LibCmt2300.c: 87: unsigned char temp;
-[; ;LibCmt2300.c: 88: if(mode == 0xFF){
-"88
-[e $ ! == -> _mode `i -> 255 `i 298  ]
-{
-[; ;LibCmt2300.c: 89: WriteRegistrCmt2300(0x7F, 0xFF);
-"89
-[e ( _WriteRegistrCmt2300 (2 , -> -> 127 `i `uc -> -> 255 `i `uc ]
-[; ;LibCmt2300.c: 90: return 0;
-"90
-[e ) -> -> 0 `i `uc ]
-[e $UE 297  ]
-"91
+[; ;mainLibCmt2300A_RX.c: 99: __nop();
+"99
+[e ( ___nop ..  ]
+"100
 }
 [e :U 298 ]
-[; ;LibCmt2300.c: 91: }
-[; ;LibCmt2300.c: 92: switch(mode){
-"92
-[e $U 300  ]
-{
-[; ;LibCmt2300.c: 93: case 0x01:
-"93
-[e :U 301 ]
-[; ;LibCmt2300.c: 94: temp = 0x10;
-"94
-[e = _temp -> -> 16 `i `uc ]
-[; ;LibCmt2300.c: 95: break;
-"95
-[e $U 299  ]
-[; ;LibCmt2300.c: 96: case 0x02:
-"96
-[e :U 302 ]
-[; ;LibCmt2300.c: 97: temp = 0x02;
-"97
-[e = _temp -> -> 2 `i `uc ]
-[; ;LibCmt2300.c: 98: break;
-"98
-[e $U 299  ]
-[; ;LibCmt2300.c: 99: case 0x03:
-"99
-[e :U 303 ]
-[; ;LibCmt2300.c: 100: temp = 0x04;
-"100
-[e = _temp -> -> 4 `i `uc ]
-[; ;LibCmt2300.c: 101: break;
+[; ;mainLibCmt2300A_RX.c: 100: }
+[; ;mainLibCmt2300A_RX.c: 101: TempData = (TempData & 0x78);
 "101
-[e $U 299  ]
-[; ;LibCmt2300.c: 102: case 0x04:
+[e = _TempData -> & -> _TempData `i -> 120 `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 102: if(TempData){
 "102
-[e :U 304 ]
-[; ;LibCmt2300.c: 103: temp = 0x20;
+[e $ ! != -> _TempData `i -> -> -> 0 `i `uc `i 299  ]
+{
+[; ;mainLibCmt2300A_RX.c: 103: __nop();
 "103
-[e = _temp -> -> 32 `i `uc ]
-[; ;LibCmt2300.c: 104: break;
+[e ( ___nop ..  ]
+[; ;mainLibCmt2300A_RX.c: 104: ModeCmt2300 = GotoNewModeCmt2300(0x02);
 "104
-[e $U 299  ]
-[; ;LibCmt2300.c: 105: case 0x05:
+[e = _ModeCmt2300 ( _GotoNewModeCmt2300 (1 -> -> 2 `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 105: WriteRegistrCmt2300(0x69,0);
 "105
-[e :U 305 ]
-[; ;LibCmt2300.c: 106: temp = 0x08;
+[e ( _WriteRegistrCmt2300 (2 , -> -> 105 `i `uc -> -> 0 `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 106: ReadFifoCmt2300(RxFifoCmt2300, 32);
 "106
-[e = _temp -> -> 8 `i `uc ]
-[; ;LibCmt2300.c: 107: break;
+[e ( _ReadFifoCmt2300 (2 , &U _RxFifoCmt2300 -> -> 32 `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 107: WriteRegistrCmt2300(0x6C , 0x02);
 "107
-[e $U 299  ]
-[; ;LibCmt2300.c: 108: case 0x06:
+[e ( _WriteRegistrCmt2300 (2 , -> -> 108 `i `uc -> -> 2 `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 108: LATAbits.LATA1 = !LATAbits.LATA1;
 "108
-[e :U 306 ]
-[; ;LibCmt2300.c: 109: temp = 0x40;
+[e = . . _LATAbits 0 1 -> -> ! != -> . . _LATAbits 0 1 `i -> -> -> 0 `i `Vuc `i `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 109: ModeCmt2300 = CheckModeCmt2300();
 "109
-[e = _temp -> -> 64 `i `uc ]
-[; ;LibCmt2300.c: 110: break;
-"110
-[e $U 299  ]
-[; ;LibCmt2300.c: 111: default:
+[e = _ModeCmt2300 ( _CheckModeCmt2300 ..  ]
+[; ;mainLibCmt2300A_RX.c: 111: __nop();
 "111
-[e :U 307 ]
-[; ;LibCmt2300.c: 112: temp = CheckModeCmt2300();
+[e ( ___nop ..  ]
 "112
-[e = _temp ( _CheckModeCmt2300 ..  ]
-[; ;LibCmt2300.c: 113: return temp;
+}
+[e :U 299 ]
+[; ;mainLibCmt2300A_RX.c: 112: }
+[; ;mainLibCmt2300A_RX.c: 113: Interval._100ms = 0;
 "113
-[e ) _temp ]
-[e $UE 297  ]
-[; ;LibCmt2300.c: 114: break;
+[e = . _Interval 2 -> -> 0 `i `uc ]
 "114
-[e $U 299  ]
+}
+[e :U 297 ]
 "115
 }
-[; ;LibCmt2300.c: 115: }
-[e $U 299  ]
-"92
-[e :U 300 ]
-[e [\ _mode , $ -> -> 1 `i `uc 301
- , $ -> -> 2 `i `uc 302
- , $ -> -> 3 `i `uc 303
- , $ -> -> 4 `i `uc 304
- , $ -> -> 5 `i `uc 305
- , $ -> -> 6 `i `uc 306
- 307 ]
-"115
-[e :U 299 ]
-[; ;LibCmt2300.c: 116: WriteRegistrCmt2300(0x60, temp);
+[e :U 292 ]
+"84
+[e $U 293  ]
+[e :U 294 ]
+[; ;mainLibCmt2300A_RX.c: 114: }
+[; ;mainLibCmt2300A_RX.c: 115: }
+[; ;mainLibCmt2300A_RX.c: 116: return;
 "116
-[e ( _WriteRegistrCmt2300 (2 , -> -> 96 `i `uc _temp ]
-[; ;LibCmt2300.c: 117: temp = CheckModeCmt2300();
+[e $UE 277  ]
+[; ;mainLibCmt2300A_RX.c: 117: }
 "117
-[e = _temp ( _CheckModeCmt2300 ..  ]
-[; ;LibCmt2300.c: 118: while(temp != mode){
+[e :UE 277 ]
+}
+[v $root$_myHiIsr `(v ~T0 @X0 0 e ]
+[v F2934 `(v ~T0 @X0 1 tf ]
 "118
-[e $U 308  ]
-[e :U 309 ]
+[v _myHiIsr `IHF2934 ~T0 @X0 1 e ]
 {
-[; ;LibCmt2300.c: 119: temp = CheckModeCmt2300();
-"119
-[e = _temp ( _CheckModeCmt2300 ..  ]
+[; ;mainLibCmt2300A_RX.c: 118: void high_priority interrupt myHiIsr(void) {
+[e :U _myHiIsr ]
+[f ]
+[; ;mainLibCmt2300A_RX.c: 120: INTCONbits.INT0IF = 0;
 "120
+[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 121: LATBbits.LATB2 = !LATBbits.LATB2;
+"121
+[e = . . _LATBbits 0 2 -> -> ! != -> . . _LATBbits 0 2 `i -> -> -> 0 `i `Vuc `i `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 122: }
+"122
+[e :UE 300 ]
+}
+[v $root$_myLoIsr `(v ~T0 @X0 0 e ]
+[v F2931 `(v ~T0 @X0 1 tf ]
+"124
+[v _myLoIsr `ILF2931 ~T0 @X0 1 e ]
+{
+[; ;mainLibCmt2300A_RX.c: 124: void low_priority interrupt myLoIsr(void) {
+[e :U _myLoIsr ]
+[f ]
+[; ;mainLibCmt2300A_RX.c: 125: if(PIE1bits.TMR2IE && PIR1bits.TMR2IF){
+"125
+[e $ ! && != -> . . _PIE1bits 0 1 `i -> -> -> 0 `i `Vuc `i != -> . . _PIR1bits 0 1 `i -> -> -> 0 `i `Vuc `i 302  ]
+{
+[; ;mainLibCmt2300A_RX.c: 126: PIR1bits.TMR2IF = 0;
+"126
+[e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 127: if(Counter1ms){
+"127
+[e $ ! != -> _Counter1ms `i -> -> -> 0 `i `uc `i 303  ]
+{
+[; ;mainLibCmt2300A_RX.c: 128: Counter1ms --;
+"128
+[e -- _Counter1ms -> -> 1 `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 129: if(!Counter1ms){
+"129
+[e $ ! ! != -> _Counter1ms `i -> -> -> 0 `i `uc `i 304  ]
+{
+[; ;mainLibCmt2300A_RX.c: 130: Counter1ms = 10;
+"130
+[e = _Counter1ms -> -> 10 `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 131: Interval._10ms = 1;
+"131
+[e = . _Interval 1 -> -> 1 `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 132: if(Counter10ms){
+"132
+[e $ ! != -> _Counter10ms `i -> -> -> 0 `i `uc `i 305  ]
+{
+[; ;mainLibCmt2300A_RX.c: 133: Counter10ms --;
+"133
+[e -- _Counter10ms -> -> 1 `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 134: if(!Counter10ms){
+"134
+[e $ ! ! != -> _Counter10ms `i -> -> -> 0 `i `uc `i 306  ]
+{
+[; ;mainLibCmt2300A_RX.c: 135: Counter10ms = 10;
+"135
+[e = _Counter10ms -> -> 10 `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 136: Interval._100ms = 1;
+"136
+[e = . _Interval 2 -> -> 1 `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 137: if(Counter100ms){
+"137
+[e $ ! != -> _Counter100ms `i -> -> -> 0 `i `uc `i 307  ]
+{
+[; ;mainLibCmt2300A_RX.c: 138: Counter100ms --;
+"138
+[e -- _Counter100ms -> -> 1 `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 139: if(!Counter100ms){
+"139
+[e $ ! ! != -> _Counter100ms `i -> -> -> 0 `i `uc `i 308  ]
+{
+[; ;mainLibCmt2300A_RX.c: 140: Counter100ms = 10;
+"140
+[e = _Counter100ms -> -> 10 `i `uc ]
+[; ;mainLibCmt2300A_RX.c: 141: Interval._1s = 1;
+"141
+[e = . _Interval 3 -> -> 1 `i `uc ]
+"142
 }
 [e :U 308 ]
-"118
-[e $ != -> _temp `i -> _mode `i 309  ]
-[e :U 310 ]
-[; ;LibCmt2300.c: 120: }
-[; ;LibCmt2300.c: 121: return temp;
-"121
-[e ) _temp ]
-[e $UE 297  ]
-[; ;LibCmt2300.c: 122: }
-"122
-[e :UE 297 ]
-}
-"124
-[v _ValueCMTBank `Cuc ~T0 @X0 -> 12 `i e ]
-[i _ValueCMTBank
-:U ..
--> -> 0 `i `uc
--> -> 102 `i `uc
--> -> 236 `i `uc
--> -> 28 `i `uc
--> -> 240 `i `uc
--> -> 128 `i `uc
--> -> 20 `i `uc
--> -> 8 `i `uc
--> -> 145 `i `uc
--> -> 2 `i `uc
--> -> 2 `i `uc
--> -> 208 `i `uc
-..
-]
-[; ;LibCmt2300.c: 124: const unsigned char ValueCMTBank[12] = {0x00,0x66,0xEC,0x1C,0xF0,0x80,0x14,0x08,0x91,0x02,0x02,0xD0};
-"126
-[v _ValueSistemBank `Cuc ~T0 @X0 -> 12 `i e ]
-[i _ValueSistemBank
-:U ..
--> -> 174 `i `uc
--> -> 224 `i `uc
--> -> 53 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 244 `i `uc
--> -> 16 `i `uc
--> -> 226 `i `uc
--> -> 66 `i `uc
--> -> 32 `i `uc
--> -> 0 `i `uc
--> -> 129 `i `uc
-..
-]
-[; ;LibCmt2300.c: 126: const unsigned char ValueSistemBank[12] = {0xAE,0xE0,0x35,0x00,0x00,0xF4,0x10,0xE2,0x42,0x20,0x00,0x81};
-"128
-[v _ValueFrequencyBank `Cuc ~T0 @X0 -> 8 `i e ]
-[i _ValueFrequencyBank
-:U ..
--> -> 66 `i `uc
--> -> 8 `i `uc
--> -> 225 `i `uc
--> -> 26 `i `uc
--> -> 66 `i `uc
--> -> 242 `i `uc
--> -> 46 `i `uc
--> -> 26 `i `uc
-..
-]
-[; ;LibCmt2300.c: 128: const unsigned char ValueFrequencyBank[8] = {0x42,0x08,0xE1,0x1A,0x42,0xF2,0x2E,0x1A};
-"130
-[v _ValueDataRateBank `Cuc ~T0 @X0 -> 24 `i e ]
-[i _ValueDataRateBank
-:U ..
--> -> 42 `i `uc
--> -> 131 `i `uc
--> -> 17 `i `uc
--> -> 16 `i `uc
--> -> 162 `i `uc
--> -> 19 `i `uc
--> -> 12 `i `uc
--> -> 10 `i `uc
--> -> 159 `i `uc
--> -> 90 `i `uc
--> -> 41 `i `uc
--> -> 41 `i `uc
--> -> 192 `i `uc
--> -> 165 `i `uc
--> -> 2 `i `uc
--> -> 83 `i `uc
--> -> 24 `i `uc
--> -> 0 `i `uc
--> -> 180 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 1 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
-..
-]
-[; ;LibCmt2300.c: 130: const unsigned char ValueDataRateBank[24] = {0x2A,0x83,0x11,0x10,0xA2,0x13,0x0C,0x0A,0x9F,0x5A, 0x29,0x29,0xC0,0xA5,0x02,0x53,0x18,0x00,0xB4,0x00, 0x00,0x01,0x00,0x00};
-"134
-[v _ValueBasebandBank `Cuc ~T0 @X0 -> 29 `i e ]
-[i _ValueBasebandBank
-:U ..
--> -> 34 `i `uc
--> -> 4 `i `uc
--> -> 0 `i `uc
--> -> 85 `i `uc
--> -> 2 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
-"135
--> -> 0 `i `uc
--> -> 145 `i `uc
--> -> 211 `i `uc
--> -> 5 `i `uc
--> -> 31 `i `uc
--> -> 17 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
-"136
--> -> 1 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 100 `i `uc
--> -> 255 `i `uc
--> -> 2 `i `uc
--> -> 0 `i `uc
--> -> 31 `i `uc
--> -> 5 `i `uc
-..
-]
-[; ;LibCmt2300.c: 134: const unsigned char ValueBasebandBank[29] = {0x22,0x04,0x00,0x55,0x02,0x00,0x00,0x00,0x00,0x00,
-[; ;LibCmt2300.c: 135: 0x00,0x91,0xD3,0x05,0x1F,0x11,0x00,0x00,0x00,0x00,
-[; ;LibCmt2300.c: 136: 0x01,0x00,0x00,0x64,0xFF,0x02,0x00,0x1F,0x05};
-"138
-[v _ValueTXBank `Cuc ~T0 @X0 -> 11 `i e ]
-[i _ValueTXBank
-:U ..
--> -> 112 `i `uc
--> -> 154 `i `uc
--> -> 12 `i `uc
--> -> 0 `i `uc
--> -> 3 `i `uc
--> -> 80 `i `uc
--> -> 0 `i `uc
--> -> 31 `i `uc
--> -> 4 `i `uc
--> -> 63 `i `uc
--> -> 127 `i `uc
-..
-]
-[; ;LibCmt2300.c: 138: const unsigned char ValueTXBank[11] = {0x70,0x9A,0x0C,0x00,0x03,0x50,0x00,0x1F,0x04,0x3F,0x7F};
-"140
-[v _InitCmtBanks `(v ~T0 @X0 1 ef3`uc`uc`*Cuc ]
-{
-[; ;LibCmt2300.c: 140: void InitCmtBanks(unsigned char addr,unsigned char count,const unsigned char * value){
-[e :U _InitCmtBanks ]
-[v _addr `uc ~T0 @X0 1 r1 ]
-[v _count `uc ~T0 @X0 1 r2 ]
-[v _value `*Cuc ~T0 @X0 1 r3 ]
-[f ]
-"141
-[v _i `uc ~T0 @X0 1 a ]
-[; ;LibCmt2300.c: 141: unsigned char i = 0;
-[e = _i -> -> 0 `i `uc ]
-"142
-[v _startAddr `uc ~T0 @X0 1 a ]
-[; ;LibCmt2300.c: 142: unsigned char startAddr = addr;
-[e = _startAddr _addr ]
-[; ;LibCmt2300.c: 143: for(i = 0; i < count; i ++){
 "143
-{
-[e = _i -> -> 0 `i `uc ]
-[e $U 315  ]
-[e :U 312 ]
-{
-[; ;LibCmt2300.c: 144: WriteRegistrCmt2300(startAddr,*value);
+}
+[e :U 307 ]
 "144
-[e ( _WriteRegistrCmt2300 (2 , _startAddr *U _value ]
-[; ;LibCmt2300.c: 145: startAddr ++;
+}
+[e :U 306 ]
 "145
-[e ++ _startAddr -> -> 1 `i `uc ]
-[; ;LibCmt2300.c: 146: value ++;
+}
+[e :U 305 ]
 "146
-[e ++ _value * -> -> 1 `i `x -> -> # *U _value `i `x ]
+}
+[e :U 304 ]
 "147
 }
-"143
-[e ++ _i -> -> 1 `i `uc ]
-[e :U 315 ]
-[e $ < -> _i `i -> _count `i 312  ]
-[e :U 313 ]
-"147
-}
-[; ;LibCmt2300.c: 147: }
-[; ;LibCmt2300.c: 148: }
+[e :U 303 ]
 "148
-[e :UE 311 ]
 }
+[e :U 302 ]
+[; ;mainLibCmt2300A_RX.c: 142: }
+[; ;mainLibCmt2300A_RX.c: 143: }
+[; ;mainLibCmt2300A_RX.c: 144: }
+[; ;mainLibCmt2300A_RX.c: 145: }
+[; ;mainLibCmt2300A_RX.c: 146: }
+[; ;mainLibCmt2300A_RX.c: 147: }
+[; ;mainLibCmt2300A_RX.c: 148: }
+[; ;mainLibCmt2300A_RX.c: 149: }
 "149
-[v _ValueCusIoSel `S270 ~T0 @X0 1 e ]
-[; ;LibCmt2300.c: 149: CusIoSelBits ValueCusIoSel;
-"150
-[v _InitGpioCmt2300 `(v ~T0 @X0 1 ef ]
-{
-[; ;LibCmt2300.c: 150: void InitGpioCmt2300(void){
-[e :U _InitGpioCmt2300 ]
-[f ]
-[; ;LibCmt2300.c: 151: ValueCusIoSel.gpio1_sel = 1;
-"151
-[e = . . _ValueCusIoSel 0 0 -> -> 1 `i `uc ]
-[; ;LibCmt2300.c: 152: ValueCusIoSel.gpio2_sel = 1;
-"152
-[e = . . _ValueCusIoSel 0 1 -> -> 1 `i `uc ]
-[; ;LibCmt2300.c: 153: ValueCusIoSel.gpio3_sel = 0;
-"153
-[e = . . _ValueCusIoSel 0 2 -> -> 0 `i `uc ]
-[; ;LibCmt2300.c: 154: WriteRegistrCmt2300(0x65,(unsigned char)ValueCusIoSel.ByteIO);
-"154
-[e ( _WriteRegistrCmt2300 (2 , -> -> 101 `i `uc . _ValueCusIoSel 1 ]
-[; ;LibCmt2300.c: 155: }
-"155
-[e :UE 316 ]
-}
-"158
-[v _ValueCusIntEn `S272 ~T0 @X0 1 e ]
-[; ;LibCmt2300.c: 158: CusIntEnBits ValueCusIntEn;
-"159
-[v _ValueCusInt1Ctl `S274 ~T0 @X0 1 e ]
-[; ;LibCmt2300.c: 159: CusIntCtlBits ValueCusInt1Ctl;
-"160
-[v _ValueCusInt2Ctl `S274 ~T0 @X0 1 e ]
-[; ;LibCmt2300.c: 160: CusIntCtlBits ValueCusInt2Ctl;
-"161
-[v _InitInterruptCmt2300 `(v ~T0 @X0 1 ef ]
-{
-[; ;LibCmt2300.c: 161: void InitInterruptCmt2300(void){
-[e :U _InitInterruptCmt2300 ]
-[f ]
-"162
-[v _temp `uc ~T0 @X0 1 a ]
-[; ;LibCmt2300.c: 162: unsigned char temp;
-[; ;LibCmt2300.c: 163: ValueCusIntEn.sl_tmo = 0;
-"163
-[e = . . _ValueCusIntEn 0 7 -> -> 0 `i `uc ]
-[; ;LibCmt2300.c: 164: ValueCusIntEn.rx_tmo = 0;
-"164
-[e = . . _ValueCusIntEn 0 6 -> -> 0 `i `uc ]
-[; ;LibCmt2300.c: 165: ValueCusIntEn.tx_done = 1;
-"165
-[e = . . _ValueCusIntEn 0 5 -> -> 1 `i `uc ]
-[; ;LibCmt2300.c: 166: ValueCusIntEn.preamb_ok = 0;
-"166
-[e = . . _ValueCusIntEn 0 4 -> -> 0 `i `uc ]
-[; ;LibCmt2300.c: 167: ValueCusIntEn.sync_ok = 0;
-"167
-[e = . . _ValueCusIntEn 0 3 -> -> 0 `i `uc ]
-[; ;LibCmt2300.c: 168: ValueCusIntEn.node_ok = 0;
-"168
-[e = . . _ValueCusIntEn 0 2 -> -> 0 `i `uc ]
-[; ;LibCmt2300.c: 169: ValueCusIntEn.crc_ok = 0;
-"169
-[e = . . _ValueCusIntEn 0 1 -> -> 0 `i `uc ]
-[; ;LibCmt2300.c: 170: ValueCusIntEn.pkt_done = 1;
-"170
-[e = . . _ValueCusIntEn 0 0 -> -> 1 `i `uc ]
-[; ;LibCmt2300.c: 172: WriteRegistrCmt2300(0x68,(unsigned char)ValueCusIntEn.ByteINT);
-"172
-[e ( _WriteRegistrCmt2300 (2 , -> -> 104 `i `uc . _ValueCusIntEn 1 ]
-[; ;LibCmt2300.c: 173: temp = ReadRegistrCmt2300(0x68);
-"173
-[e = _temp ( _ReadRegistrCmt2300 (1 -> -> 104 `i `uc ]
-[; ;LibCmt2300.c: 175: ValueCusInt1Ctl.INT_SEL = 0b11001;
-"175
-[e = . . _ValueCusInt1Ctl 0 0 -> -> 25 `i `uc ]
-[; ;LibCmt2300.c: 176: ValueCusInt1Ctl.INT_POLAR = 0;
-"176
-[e = . . _ValueCusInt1Ctl 0 1 -> -> 0 `i `uc ]
-[; ;LibCmt2300.c: 177: WriteRegistrCmt2300(0x66,(unsigned char)ValueCusInt1Ctl.ByteIntCTL);
-"177
-[e ( _WriteRegistrCmt2300 (2 , -> -> 102 `i `uc . _ValueCusInt1Ctl 1 ]
-[; ;LibCmt2300.c: 179: ValueCusInt2Ctl.INT_SEL = 0b01010;
-"179
-[e = . . _ValueCusInt2Ctl 0 0 -> -> 10 `i `uc ]
-[; ;LibCmt2300.c: 180: WriteRegistrCmt2300(0x67,(unsigned char)ValueCusInt2Ctl.ByteIntCTL);
-"180
-[e ( _WriteRegistrCmt2300 (2 , -> -> 103 `i `uc . _ValueCusInt2Ctl 1 ]
-[; ;LibCmt2300.c: 182: InitGpioCmt2300();
-"182
-[e ( _InitGpioCmt2300 ..  ]
-[; ;LibCmt2300.c: 183: }
-"183
-[e :UE 317 ]
-}
-"184
-[v _CrcControlCmt2300 `(v ~T0 @X0 1 ef1`uc ]
-{
-[; ;LibCmt2300.c: 184: void CrcControlCmt2300(unsigned char control_reg){
-[e :U _CrcControlCmt2300 ]
-[v _control_reg `uc ~T0 @X0 1 r1 ]
-[f ]
-[; ;LibCmt2300.c: 185: WriteRegistrCmt2300(0x4C,control_reg);
-"185
-[e ( _WriteRegistrCmt2300 (2 , -> -> 76 `i `uc _control_reg ]
-[; ;LibCmt2300.c: 186: }
-"186
-[e :UE 318 ]
-}
-"187
-[v _NodeIdControlCmt2300 `(v ~T0 @X0 1 ef1`uc ]
-{
-[; ;LibCmt2300.c: 187: void NodeIdControlCmt2300(unsigned char control_reg){
-[e :U _NodeIdControlCmt2300 ]
-[v _control_reg `uc ~T0 @X0 1 r1 ]
-[f ]
-[; ;LibCmt2300.c: 188: WriteRegistrCmt2300(0x47,control_reg);
-"188
-[e ( _WriteRegistrCmt2300 (2 , -> -> 71 `i `uc _control_reg ]
-[; ;LibCmt2300.c: 189: }
-"189
-[e :UE 319 ]
-}
-"190
-[v _InitCmt2300 `(v ~T0 @X0 1 ef ]
-{
-[; ;LibCmt2300.c: 190: void InitCmt2300(void){
-[e :U _InitCmt2300 ]
-[f ]
-"191
-[v _temp `uc ~T0 @X0 1 a ]
-[; ;LibCmt2300.c: 191: unsigned char temp;
-[; ;LibCmt2300.c: 192: InitCmtBanks(0x00,12,ValueCMTBank);
-"192
-[e ( _InitCmtBanks (3 , , -> -> 0 `i `uc -> -> 12 `i `uc &U _ValueCMTBank ]
-[; ;LibCmt2300.c: 193: InitCmtBanks(0x0C,12,ValueSistemBank);
-"193
-[e ( _InitCmtBanks (3 , , -> -> 12 `i `uc -> -> 12 `i `uc &U _ValueSistemBank ]
-[; ;LibCmt2300.c: 194: InitCmtBanks(0x18,8,ValueFrequencyBank);
-"194
-[e ( _InitCmtBanks (3 , , -> -> 24 `i `uc -> -> 8 `i `uc &U _ValueFrequencyBank ]
-[; ;LibCmt2300.c: 195: InitCmtBanks(0x20,24,ValueDataRateBank);
-"195
-[e ( _InitCmtBanks (3 , , -> -> 32 `i `uc -> -> 24 `i `uc &U _ValueDataRateBank ]
-[; ;LibCmt2300.c: 196: InitCmtBanks(0x38,29,ValueBasebandBank);
-"196
-[e ( _InitCmtBanks (3 , , -> -> 56 `i `uc -> -> 29 `i `uc &U _ValueBasebandBank ]
-[; ;LibCmt2300.c: 197: InitCmtBanks(0x55,11,ValueTXBank);
-"197
-[e ( _InitCmtBanks (3 , , -> -> 85 `i `uc -> -> 11 `i `uc &U _ValueTXBank ]
-[; ;LibCmt2300.c: 198: __nop();
-"198
-[e ( ___nop ..  ]
-[; ;LibCmt2300.c: 199: InitInterruptCmt2300();
-"199
-[e ( _InitInterruptCmt2300 ..  ]
-[; ;LibCmt2300.c: 200: NodeIdControlCmt2300(0);
-"200
-[e ( _NodeIdControlCmt2300 (1 -> -> 0 `i `uc ]
-[; ;LibCmt2300.c: 201: CrcControlCmt2300(0);
-"201
-[e ( _CrcControlCmt2300 (1 -> -> 0 `i `uc ]
-[; ;LibCmt2300.c: 202: __nop();
-"202
-[e ( ___nop ..  ]
-[; ;LibCmt2300.c: 203: }
-"203
-[e :UE 320 ]
-}
-"205
-[v _ReadByteFifoCmt2300 `(uc ~T0 @X0 1 ef ]
-{
-[; ;LibCmt2300.c: 205: unsigned char ReadByteFifoCmt2300(void){
-[e :U _ReadByteFifoCmt2300 ]
-[f ]
-"206
-[v _data `uc ~T0 @X0 1 a ]
-[; ;LibCmt2300.c: 206: unsigned char data = 0;
-[e = _data -> -> 0 `i `uc ]
-"207
-[v _mask `uc ~T0 @X0 1 a ]
-[; ;LibCmt2300.c: 207: unsigned char mask = 0x80;
-[e = _mask -> -> 128 `i `uc ]
-"208
-[v _i `uc ~T0 @X0 1 a ]
-[; ;LibCmt2300.c: 208: unsigned char i;
-[; ;LibCmt2300.c: 209: LATBbits.LATB3 = 0;
-"209
-[e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
-[; ;LibCmt2300.c: 210: data = 0;
-"210
-[e = _data -> -> 0 `i `uc ]
-[; ;LibCmt2300.c: 211: mask = 0x80;
-"211
-[e = _mask -> -> 128 `i `uc ]
-[; ;LibCmt2300.c: 212: for(i = 0; i < 1; i++);
-"212
-{
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 1 `i 322  ]
-[e $U 323  ]
-[e :U 322 ]
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 1 `i 322  ]
-[e :U 323 ]
-}
-[; ;LibCmt2300.c: 213: for(i = 0; i < 8; i++){
-"213
-{
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 8 `i 325  ]
-[e $U 326  ]
-[e :U 325 ]
-{
-[; ;LibCmt2300.c: 214: LATCbits.LATC3 = 1;
-"214
-[e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
-[; ;LibCmt2300.c: 215: if(PORTCbits.RC5){
-"215
-[e $ ! != -> . . _PORTCbits 0 5 `i -> -> -> 0 `i `Vuc `i 328  ]
-{
-[; ;LibCmt2300.c: 216: data = (unsigned char)(mask | data);
-"216
-[e = _data -> | -> _mask `i -> _data `i `uc ]
-"217
-}
-[e :U 328 ]
-[; ;LibCmt2300.c: 217: }
-[; ;LibCmt2300.c: 218: LATCbits.LATC3 = 0;
-"218
-[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
-[; ;LibCmt2300.c: 219: mask = (unsigned char)(mask>>1);
-"219
-[e = _mask -> >> -> _mask `i -> 1 `i `uc ]
-"220
-}
-"213
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 8 `i 325  ]
-[e :U 326 ]
-"220
-}
-[; ;LibCmt2300.c: 220: }
-[; ;LibCmt2300.c: 221: _delay((unsigned long)((2)*(32000000/4000000.0)));
-"221
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
-[; ;LibCmt2300.c: 222: LATBbits.LATB3 = 1;
-"222
-[e = . . _LATBbits 0 3 -> -> 1 `i `uc ]
-[; ;LibCmt2300.c: 223: return data;
-"223
-[e ) _data ]
-[e $UE 321  ]
-[; ;LibCmt2300.c: 224: }
-"224
-[e :UE 321 ]
-}
-"225
-[v _ReadFifoCmt2300 `(v ~T0 @X0 1 ef2`*uc`uc ]
-{
-[; ;LibCmt2300.c: 225: void ReadFifoCmt2300(unsigned char* data, unsigned char counter){
-[e :U _ReadFifoCmt2300 ]
-[v _data `*uc ~T0 @X0 1 r1 ]
-[v _counter `uc ~T0 @X0 1 r2 ]
-[f ]
-"226
-[v _i `uc ~T0 @X0 1 a ]
-[; ;LibCmt2300.c: 226: unsigned char i;
-[; ;LibCmt2300.c: 227: TRISCbits.TRISC5 = 1;
-"227
-[e = . . _TRISCbits 0 5 -> -> 1 `i `uc ]
-[; ;LibCmt2300.c: 228: LATCbits.LATC3 = 0;
-"228
-[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
-[; ;LibCmt2300.c: 229: for(i = 0; i < counter; i++){
-"229
-{
-[e = _i -> -> 0 `i `uc ]
-[e $U 333  ]
-[e :U 330 ]
-{
-[; ;LibCmt2300.c: 230: *data = ReadByteFifoCmt2300();
-"230
-[e = *U _data ( _ReadByteFifoCmt2300 ..  ]
-[; ;LibCmt2300.c: 231: data ++;
-"231
-[e ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x ]
-[; ;LibCmt2300.c: 232: _delay((unsigned long)((4)*(32000000/4000000.0)));
-"232
-[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
-"233
-}
-"229
-[e ++ _i -> -> 1 `i `uc ]
-[e :U 333 ]
-[e $ < -> _i `i -> _counter `i 330  ]
-[e :U 331 ]
-"233
-}
-[; ;LibCmt2300.c: 233: }
-[; ;LibCmt2300.c: 234: TRISCbits.TRISC5 = 0;
-"234
-[e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
-[; ;LibCmt2300.c: 235: }
-"235
-[e :UE 329 ]
-}
-"237
-[v _WriteByteFifoCmt2300 `(v ~T0 @X0 1 ef1`uc ]
-{
-[; ;LibCmt2300.c: 237: void WriteByteFifoCmt2300(unsigned char data){
-[e :U _WriteByteFifoCmt2300 ]
-[v _data `uc ~T0 @X0 1 r1 ]
-[f ]
-"238
-[v _temp `ui ~T0 @X0 1 a ]
-"239
-[v _mask `ui ~T0 @X0 1 a ]
-[; ;LibCmt2300.c: 238: unsigned int temp;
-[; ;LibCmt2300.c: 239: unsigned int mask = 0x80;
-[e = _mask -> -> 128 `i `ui ]
-"240
-[v _i `uc ~T0 @X0 1 a ]
-[; ;LibCmt2300.c: 240: unsigned char i;
-[; ;LibCmt2300.c: 241: temp = data;
-"241
-[e = _temp -> _data `ui ]
-[; ;LibCmt2300.c: 242: LATBbits.LATB3 = 0;
-"242
-[e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
-[; ;LibCmt2300.c: 243: for(i = 0; i < 1; i++);
-"243
-{
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 1 `i 335  ]
-[e $U 336  ]
-[e :U 335 ]
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 1 `i 335  ]
-[e :U 336 ]
-}
-[; ;LibCmt2300.c: 244: for(i = 0; i < 8; i++){
-"244
-{
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 8 `i 338  ]
-[e $U 339  ]
-[e :U 338 ]
-{
-[; ;LibCmt2300.c: 245: LATCbits.LATC3 = 1;
-"245
-[e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
-[; ;LibCmt2300.c: 246: mask = (unsigned int)(mask>>1);
-"246
-[e = _mask >> _mask -> 1 `i ]
-[; ;LibCmt2300.c: 247: LATCbits.LATC3 = 0;
-"247
-[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
-[; ;LibCmt2300.c: 248: if((mask & temp)){
-"248
-[e $ ! != & _mask _temp -> -> 0 `i `ui 341  ]
-{
-[; ;LibCmt2300.c: 249: LATCbits.LATC5 = 1;
-"249
-[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
-"250
-}
-[; ;LibCmt2300.c: 250: }else{
-[e $U 342  ]
-[e :U 341 ]
-{
-[; ;LibCmt2300.c: 251: LATCbits.LATC5 = 0;
-"251
-[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
-"252
-}
-[e :U 342 ]
-"253
-}
-"244
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 8 `i 338  ]
-[e :U 339 ]
-"253
-}
-[; ;LibCmt2300.c: 252: }
-[; ;LibCmt2300.c: 253: }
-[; ;LibCmt2300.c: 254: _delay((unsigned long)((2)*(32000000/4000000.0)));
-"254
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
-[; ;LibCmt2300.c: 255: LATBbits.LATB3 = 1;
-"255
-[e = . . _LATBbits 0 3 -> -> 1 `i `uc ]
-[; ;LibCmt2300.c: 256: }
-"256
-[e :UE 334 ]
-}
-"258
-[v _WriteFifoCmt2300 `(v ~T0 @X0 1 ef2`*uc`uc ]
-{
-[; ;LibCmt2300.c: 258: void WriteFifoCmt2300(unsigned char * data, unsigned char counter){
-[e :U _WriteFifoCmt2300 ]
-[v _data `*uc ~T0 @X0 1 r1 ]
-[v _counter `uc ~T0 @X0 1 r2 ]
-[f ]
-"259
-[v _i `uc ~T0 @X0 1 a ]
-[; ;LibCmt2300.c: 259: unsigned char i;
-[; ;LibCmt2300.c: 260: TRISCbits.TRISC5 = 0;
-"260
-[e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
-[; ;LibCmt2300.c: 261: LATCbits.LATC3 = 0;
-"261
-[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
-[; ;LibCmt2300.c: 262: for(i = 0; i < counter; i++){
-"262
-{
-[e = _i -> -> 0 `i `uc ]
-[e $U 347  ]
-[e :U 344 ]
-{
-[; ;LibCmt2300.c: 263: WriteByteFifoCmt2300(*data);
-"263
-[e ( _WriteByteFifoCmt2300 (1 *U _data ]
-[; ;LibCmt2300.c: 264: data ++;
-"264
-[e ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x ]
-[; ;LibCmt2300.c: 265: _delay((unsigned long)((4)*(32000000/4000000.0)));
-"265
-[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
-"266
-}
-"262
-[e ++ _i -> -> 1 `i `uc ]
-[e :U 347 ]
-[e $ < -> _i `i -> _counter `i 344  ]
-[e :U 345 ]
-"266
-}
-[; ;LibCmt2300.c: 266: }
-[; ;LibCmt2300.c: 267: }
-"267
-[e :UE 343 ]
-}
-"268
-[v _WritePktLength `(v ~T0 @X0 1 ef1`uc ]
-{
-[; ;LibCmt2300.c: 268: void WritePktLength(unsigned char length){
-[e :U _WritePktLength ]
-[v _length `uc ~T0 @X0 1 r1 ]
-[f ]
-[; ;LibCmt2300.c: 269: WriteRegistrCmt2300(0x46,length);
-"269
-[e ( _WriteRegistrCmt2300 (2 , -> -> 70 `i `uc _length ]
-[; ;LibCmt2300.c: 270: }
-"270
-[e :UE 348 ]
-}
-"271
-[v _WriteNodeId `(v ~T0 @X0 1 ef1`uc ]
-{
-[; ;LibCmt2300.c: 271: void WriteNodeId(unsigned char room){
-[e :U _WriteNodeId ]
-[v _room `uc ~T0 @X0 1 r1 ]
-[f ]
-[; ;LibCmt2300.c: 272: WriteRegistrCmt2300(0x48,room);
-"272
-[e ( _WriteRegistrCmt2300 (2 , -> -> 72 `i `uc _room ]
-[; ;LibCmt2300.c: 273: }
-"273
-[e :UE 349 ]
+[e :UE 301 ]
 }

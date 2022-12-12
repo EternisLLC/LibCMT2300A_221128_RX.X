@@ -33,7 +33,7 @@
 [v _InitInterrupt InitInterrupt `(v  1 e 1 0 ]
 "129
 [v _ProcessorInit ProcessorInit `(v  1 e 1 0 ]
-"13 F:\projekt\Garant433\TestNewDevice\LibCMT2300A_pic\LibCMT2300A_221128_RX.X\LibCmt2300.c
+"13 F:\projekt\Garant433\TestNewDevice\LibCMT2300A_pic\LibCMT2300A_221128_RX.X\LibCmt2300_RX.c
 [v _WriteRegistrCmt2300 WriteRegistrCmt2300 `(v  1 e 1 0 ]
 "40
 [v _ReadRegistrCmt2300 ReadRegistrCmt2300 `(uc  1 e 1 0 ]
@@ -41,33 +41,35 @@
 [v _CheckModeCmt2300 CheckModeCmt2300 `(uc  1 e 1 0 ]
 "86
 [v _GotoNewModeCmt2300 GotoNewModeCmt2300 `(uc  1 e 1 0 ]
-"140
+"143
 [v _InitCmtBanks InitCmtBanks `(v  1 e 1 0 ]
-"150
+"153
 [v _InitGpioCmt2300 InitGpioCmt2300 `(v  1 e 1 0 ]
-"161
+"164
 [v _InitInterruptCmt2300 InitInterruptCmt2300 `(v  1 e 1 0 ]
-"184
-[v _CrcControlCmt2300 CrcControlCmt2300 `(v  1 e 1 0 ]
 "187
-[v _NodeIdControlCmt2300 NodeIdControlCmt2300 `(v  1 e 1 0 ]
+[v _CrcControlCmt2300 CrcControlCmt2300 `(v  1 e 1 0 ]
 "190
+[v _NodeIdControlCmt2300 NodeIdControlCmt2300 `(v  1 e 1 0 ]
+"193
 [v _InitCmt2300 InitCmt2300 `(v  1 e 1 0 ]
-"205
+"208
 [v _ReadByteFifoCmt2300 ReadByteFifoCmt2300 `(uc  1 e 1 0 ]
-"237
+"228
+[v _ReadFifoCmt2300 ReadFifoCmt2300 `(v  1 e 1 0 ]
+"240
 [v _WriteByteFifoCmt2300 WriteByteFifoCmt2300 `(v  1 e 1 0 ]
-"258
+"261
 [v _WriteFifoCmt2300 WriteFifoCmt2300 `(v  1 e 1 0 ]
-"268
-[v _WritePktLength WritePktLength `(v  1 e 1 0 ]
 "271
+[v _WritePktLength WritePktLength `(v  1 e 1 0 ]
+"274
 [v _WriteNodeId WriteNodeId `(v  1 e 1 0 ]
-"25 F:\projekt\Garant433\TestNewDevice\LibCMT2300A_pic\LibCMT2300A_221128_RX.X\mainLibCmt2300A.c
+"25 F:\projekt\Garant433\TestNewDevice\LibCMT2300A_pic\LibCMT2300A_221128_RX.X\mainLibCmt2300A_RX.c
 [v _main main `(v  1 e 1 0 ]
-"112
-[v _myHiIsr myHiIsr `IIH(v  1 e 1 0 ]
 "118
+[v _myHiIsr myHiIsr `IIH(v  1 e 1 0 ]
+"124
 [v _myLoIsr myLoIsr `IIL(v  1 e 1 0 ]
 "432 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic18f25k20.h
 [v _ANSEL ANSEL `VEuc  1 e 1 @3966 ]
@@ -228,7 +230,7 @@
 "2061
 [u S161 . 1 `S143 1 . 1 0 `S152 1 . 1 0 ]
 [v _TRISCbits TRISCbits `VES161  1 e 1 @3988 ]
-[s S557 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[s S460 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSPIE 1 0 :1:3 
@@ -237,13 +239,13 @@
 `uc 1 ADIE 1 0 :1:6 
 ]
 "2342
-[s S565 . 1 `uc 1 . 1 0 :4:0 
+[s S468 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IE 1 0 :1:4 
 `uc 1 RC1IE 1 0 :1:5 
 ]
-[u S569 . 1 `S557 1 . 1 0 `S565 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES569  1 e 1 @3997 ]
-[s S585 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S472 . 1 `S460 1 . 1 0 `S468 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES472  1 e 1 @3997 ]
+[s S488 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -252,13 +254,13 @@
 `uc 1 ADIF 1 0 :1:6 
 ]
 "2413
-[s S593 . 1 `uc 1 . 1 0 :4:0 
+[s S496 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IF 1 0 :1:4 
 `uc 1 RC1IF 1 0 :1:5 
 ]
-[u S597 . 1 `S585 1 . 1 0 `S593 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES597  1 e 1 @3998 ]
-[s S692 . 1 `uc 1 TMR1IP 1 0 :1:0 
+[u S500 . 1 `S488 1 . 1 0 `S496 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES500  1 e 1 @3998 ]
+[s S432 . 1 `uc 1 TMR1IP 1 0 :1:0 
 `uc 1 TMR2IP 1 0 :1:1 
 `uc 1 CCP1IP 1 0 :1:2 
 `uc 1 SSPIP 1 0 :1:3 
@@ -267,18 +269,18 @@
 `uc 1 ADIP 1 0 :1:6 
 ]
 "2484
-[s S700 . 1 `uc 1 . 1 0 :4:0 
+[s S440 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IP 1 0 :1:4 
 `uc 1 RC1IP 1 0 :1:5 
 ]
-[u S704 . 1 `S692 1 . 1 0 `S700 1 . 1 0 ]
-[v _IPR1bits IPR1bits `VES704  1 e 1 @3999 ]
-[s S663 . 1 `uc 1 T2CKPS 1 0 :2:0 
+[u S444 . 1 `S432 1 . 1 0 `S440 1 . 1 0 ]
+[v _IPR1bits IPR1bits `VES444  1 e 1 @3999 ]
+[s S403 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 T2OUTPS 1 0 :4:3 
 ]
 "4868
-[s S667 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S407 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 T2OUTPS0 1 0 :1:3 
@@ -286,28 +288,28 @@
 `uc 1 T2OUTPS2 1 0 :1:5 
 `uc 1 T2OUTPS3 1 0 :1:6 
 ]
-[u S675 . 1 `S663 1 . 1 0 `S667 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES675  1 e 1 @4042 ]
+[u S415 . 1 `S403 1 . 1 0 `S407 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES415  1 e 1 @4042 ]
 "4918
 [v _PR2 PR2 `VEuc  1 e 1 @4043 ]
 "5028
 [v _TMR2 TMR2 `VEuc  1 e 1 @4044 ]
-[s S756 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+[s S520 . 1 `uc 1 NOT_BOR 1 0 :1:0 
 ]
 "5202
-[s S758 . 1 `uc 1 . 1 0 :1:0 
+[s S522 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_POR 1 0 :1:1 
 ]
-[s S761 . 1 `uc 1 . 1 0 :2:0 
+[s S525 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_PD 1 0 :1:2 
 ]
-[s S764 . 1 `uc 1 . 1 0 :3:0 
+[s S528 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 NOT_TO 1 0 :1:3 
 ]
-[s S767 . 1 `uc 1 . 1 0 :4:0 
+[s S531 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 NOT_RI 1 0 :1:4 
 ]
-[s S770 . 1 `uc 1 nBOR 1 0 :1:0 
+[s S534 . 1 `uc 1 nBOR 1 0 :1:0 
 `uc 1 nPOR 1 0 :1:1 
 `uc 1 nPD 1 0 :1:2 
 `uc 1 nTO 1 0 :1:3 
@@ -316,15 +318,15 @@
 `uc 1 SBOREN 1 0 :1:6 
 `uc 1 IPEN 1 0 :1:7 
 ]
-[s S779 . 1 `uc 1 BOR 1 0 :1:0 
+[s S543 . 1 `uc 1 BOR 1 0 :1:0 
 `uc 1 POR 1 0 :1:1 
 `uc 1 PD 1 0 :1:2 
 `uc 1 TO 1 0 :1:3 
 `uc 1 RI 1 0 :1:4 
 ]
-[u S785 . 1 `S756 1 . 1 0 `S758 1 . 1 0 `S761 1 . 1 0 `S764 1 . 1 0 `S767 1 . 1 0 `S770 1 . 1 0 `S779 1 . 1 0 ]
-[v _RCONbits RCONbits `VES785  1 e 1 @4048 ]
-[s S486 . 1 `uc 1 RBIF 1 0 :1:0 
+[u S549 . 1 `S520 1 . 1 0 `S522 1 . 1 0 `S525 1 . 1 0 `S528 1 . 1 0 `S531 1 . 1 0 `S534 1 . 1 0 `S543 1 . 1 0 ]
+[v _RCONbits RCONbits `VES549  1 e 1 @4048 ]
+[s S587 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -334,7 +336,7 @@
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "6210
-[s S495 . 1 `uc 1 . 1 0 :1:0 
+[s S596 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -343,55 +345,57 @@
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S504 . 1 `uc 1 . 1 0 :6:0 
+[s S605 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S508 . 1 `S486 1 . 1 0 `S495 1 . 1 0 `S504 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES508  1 e 1 @4082 ]
+[u S609 . 1 `S587 1 . 1 0 `S596 1 . 1 0 `S605 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES609  1 e 1 @4082 ]
 "7471
 [v _TMR2IE TMR2IE `VEb  1 e 0 @31977 ]
 "7473
 [v _TMR2IF TMR2IF `VEb  1 e 0 @31985 ]
 "7477
 [v _TMR2ON TMR2ON `VEb  1 e 0 @32338 ]
-[s S402 . 1 `uc 1 _1ms 1 0 :1:0 
+[s S398 . 1 `uc 1 _1ms 1 0 :1:0 
 `uc 1 _10ms 1 0 :1:1 
 `uc 1 _100ms 1 0 :1:2 
 `uc 1 _1s 1 0 :1:3 
 ]
 "4 F:\projekt\Garant433\TestNewDevice\LibCMT2300A_pic\LibCMT2300A_221128_RX.X\InitProcessor.c
-[v _Interval Interval `S402  1 e 1 0 ]
+[v _Interval Interval `S398  1 e 1 0 ]
 "5
 [v _Counter1ms Counter1ms `uc  1 e 1 0 ]
 "6
 [v _Counter10ms Counter10ms `uc  1 e 1 0 ]
 "7
 [v _Counter100ms Counter100ms `uc  1 e 1 0 ]
-"8 F:\projekt\Garant433\TestNewDevice\LibCMT2300A_pic\LibCMT2300A_221128_RX.X\LibCmt2300.c
+"8 F:\projekt\Garant433\TestNewDevice\LibCMT2300A_pic\LibCMT2300A_221128_RX.X\LibCmt2300_RX.c
 [v _ModeCmt2300 ModeCmt2300 `uc  1 e 1 0 ]
+"9
+[v _RxFifoCmt2300 RxFifoCmt2300 `[32]uc  1 e 32 0 ]
 "11
 [v _TxFifoCmt2300 TxFifoCmt2300 `[32]uc  1 e 32 0 ]
 "124
 [v _ValueCMTBank ValueCMTBank `C[12]uc  1 e 12 0 ]
 "126
 [v _ValueSistemBank ValueSistemBank `C[12]uc  1 e 12 0 ]
-"128
+"129
 [v _ValueFrequencyBank ValueFrequencyBank `C[8]uc  1 e 8 0 ]
-"130
+"133
 [v _ValueDataRateBank ValueDataRateBank `C[24]uc  1 e 24 0 ]
-"134
+"137
 [v _ValueBasebandBank ValueBasebandBank `C[29]uc  1 e 29 0 ]
-"138
+"141
 [v _ValueTXBank ValueTXBank `C[11]uc  1 e 11 0 ]
-[s S993 . 1 `uc 1 gpio1_sel 1 0 :2:0 
+[s S998 . 1 `uc 1 gpio1_sel 1 0 :2:0 
 `uc 1 gpio2_sel 1 0 :2:2 
 `uc 1 gpio3_sel 1 0 :2:4 
 ]
-"149
-[u S997 . 1 `S993 1 . 1 0 `uc 1 ByteIO 1 0 ]
-[v _ValueCusIoSel ValueCusIoSel `S997  1 e 1 0 ]
-[s S1000 . 1 `uc 1 pkt_done 1 0 :1:0 
+"152
+[u S1002 . 1 `S998 1 . 1 0 `uc 1 ByteIO 1 0 ]
+[v _ValueCusIoSel ValueCusIoSel `S1002  1 e 1 0 ]
+[s S1005 . 1 `uc 1 pkt_done 1 0 :1:0 
 `uc 1 crc_ok 1 0 :1:1 
 `uc 1 node_ok 1 0 :1:2 
 `uc 1 sync_ok 1 0 :1:3 
@@ -400,66 +404,87 @@
 `uc 1 rx_tmo 1 0 :1:6 
 `uc 1 sl_tmo 1 0 :1:7 
 ]
-"158
-[u S1009 . 1 `S1000 1 . 1 0 `uc 1 ByteINT 1 0 ]
-[v _ValueCusIntEn ValueCusIntEn `S1009  1 e 1 0 ]
-[s S1012 . 1 `uc 1 INT_SEL 1 0 :5:0 
+"161
+[u S1014 . 1 `S1005 1 . 1 0 `uc 1 ByteINT 1 0 ]
+[v _ValueCusIntEn ValueCusIntEn `S1014  1 e 1 0 ]
+[s S1017 . 1 `uc 1 INT_SEL 1 0 :5:0 
 `uc 1 INT_POLAR 1 0 :1:5 
 `uc 1 reserv 1 0 :2:6 
 ]
-"159
-[u S1016 . 1 `S1012 1 . 1 0 `uc 1 ByteIntCTL 1 0 ]
-[v _ValueCusInt1Ctl ValueCusInt1Ctl `S1016  1 e 1 0 ]
-"160
-[v _ValueCusInt2Ctl ValueCusInt2Ctl `S1016  1 e 1 0 ]
-"16 F:\projekt\Garant433\TestNewDevice\LibCMT2300A_pic\LibCMT2300A_221128_RX.X\mainLibCmt2300A.c
+"162
+[u S1021 . 1 `S1017 1 . 1 0 `uc 1 ByteIntCTL 1 0 ]
+[v _ValueCusInt1Ctl ValueCusInt1Ctl `S1021  1 e 1 0 ]
+"163
+[v _ValueCusInt2Ctl ValueCusInt2Ctl `S1021  1 e 1 0 ]
+"16 F:\projekt\Garant433\TestNewDevice\LibCMT2300A_pic\LibCMT2300A_221128_RX.X\mainLibCmt2300A_RX.c
 [v _TempData TempData `uc  1 e 1 0 ]
 "25
 [v _main main `(v  1 e 1 0 ]
 {
-"111
+"117
 } 0
-"268 F:\projekt\Garant433\TestNewDevice\LibCMT2300A_pic\LibCMT2300A_221128_RX.X\LibCmt2300.c
+"271 F:\projekt\Garant433\TestNewDevice\LibCMT2300A_pic\LibCMT2300A_221128_RX.X\LibCmt2300_RX.c
 [v _WritePktLength WritePktLength `(v  1 e 1 0 ]
 {
 [v WritePktLength@length length `uc  1 a 1 wreg ]
 [v WritePktLength@length length `uc  1 a 1 wreg ]
 [v WritePktLength@length length `uc  1 a 1 41 ]
-"270
+"273
 } 0
-"271
+"274
 [v _WriteNodeId WriteNodeId `(v  1 e 1 0 ]
 {
 [v WriteNodeId@room room `uc  1 a 1 wreg ]
 [v WriteNodeId@room room `uc  1 a 1 wreg ]
 [v WriteNodeId@room room `uc  1 a 1 41 ]
-"273
+"276
 } 0
-"258
+"261
 [v _WriteFifoCmt2300 WriteFifoCmt2300 `(v  1 e 1 0 ]
 {
-"259
+"262
 [v WriteFifoCmt2300@i i `uc  1 a 1 9 ]
-"258
+"261
 [v WriteFifoCmt2300@data data `*.39uc  1 p 2 6 ]
 [v WriteFifoCmt2300@counter counter `uc  1 p 1 8 ]
-"267
+"270
 } 0
-"237
+"240
 [v _WriteByteFifoCmt2300 WriteByteFifoCmt2300 `(v  1 e 1 0 ]
 {
 [v WriteByteFifoCmt2300@data data `uc  1 a 1 wreg ]
-"239
+"242
 [v WriteByteFifoCmt2300@mask mask `ui  1 a 2 3 ]
-"238
+"241
 [v WriteByteFifoCmt2300@temp temp `ui  1 a 2 1 ]
-"240
+"243
 [v WriteByteFifoCmt2300@i i `uc  1 a 1 5 ]
-"237
+"240
 [v WriteByteFifoCmt2300@data data `uc  1 a 1 wreg ]
-"239
+"242
 [v WriteByteFifoCmt2300@data data `uc  1 a 1 0 ]
-"256
+"259
+} 0
+"228
+[v _ReadFifoCmt2300 ReadFifoCmt2300 `(v  1 e 1 0 ]
+{
+"229
+[v ReadFifoCmt2300@i i `uc  1 a 1 40 ]
+"228
+[v ReadFifoCmt2300@data data `*.39uc  1 p 2 3 ]
+[v ReadFifoCmt2300@counter counter `uc  1 p 1 5 ]
+"238
+} 0
+"208
+[v _ReadByteFifoCmt2300 ReadByteFifoCmt2300 `(uc  1 e 1 0 ]
+{
+"211
+[v ReadByteFifoCmt2300@i i `uc  1 a 1 2 ]
+"210
+[v ReadByteFifoCmt2300@mask mask `uc  1 a 1 1 ]
+"209
+[v ReadByteFifoCmt2300@data data `uc  1 a 1 0 ]
+"227
 } 0
 "129 F:\projekt\Garant433\TestNewDevice\LibCMT2300A_pic\LibCMT2300A_221128_RX.X\InitProcessor.c
 [v _ProcessorInit ProcessorInit `(v  1 e 1 0 ]
@@ -486,53 +511,53 @@
 {
 "128
 } 0
-"190 F:\projekt\Garant433\TestNewDevice\LibCMT2300A_pic\LibCMT2300A_221128_RX.X\LibCmt2300.c
+"193 F:\projekt\Garant433\TestNewDevice\LibCMT2300A_pic\LibCMT2300A_221128_RX.X\LibCmt2300_RX.c
 [v _InitCmt2300 InitCmt2300 `(v  1 e 1 0 ]
 {
-"203
+"206
 } 0
-"187
+"190
 [v _NodeIdControlCmt2300 NodeIdControlCmt2300 `(v  1 e 1 0 ]
 {
 [v NodeIdControlCmt2300@control_reg control_reg `uc  1 a 1 wreg ]
 [v NodeIdControlCmt2300@control_reg control_reg `uc  1 a 1 wreg ]
 [v NodeIdControlCmt2300@control_reg control_reg `uc  1 a 1 41 ]
-"189
+"192
 } 0
-"161
+"164
 [v _InitInterruptCmt2300 InitInterruptCmt2300 `(v  1 e 1 0 ]
 {
-"162
+"165
 [v InitInterruptCmt2300@temp temp `uc  1 a 1 41 ]
-"183
+"186
 } 0
-"150
+"153
 [v _InitGpioCmt2300 InitGpioCmt2300 `(v  1 e 1 0 ]
 {
-"155
+"158
 } 0
-"140
+"143
 [v _InitCmtBanks InitCmtBanks `(v  1 e 1 0 ]
 {
 [v InitCmtBanks@addr addr `uc  1 a 1 wreg ]
-"141
+"144
 [v InitCmtBanks@i i `uc  1 a 1 13 ]
-"142
+"145
 [v InitCmtBanks@startAddr startAddr `uc  1 a 1 12 ]
-"140
+"143
 [v InitCmtBanks@addr addr `uc  1 a 1 wreg ]
 [v InitCmtBanks@count count `uc  1 p 1 8 ]
 [v InitCmtBanks@value value `*.25Cuc  1 p 2 9 ]
 [v InitCmtBanks@addr addr `uc  1 a 1 11 ]
-"148
+"151
 } 0
-"184
+"187
 [v _CrcControlCmt2300 CrcControlCmt2300 `(v  1 e 1 0 ]
 {
 [v CrcControlCmt2300@control_reg control_reg `uc  1 a 1 wreg ]
 [v CrcControlCmt2300@control_reg control_reg `uc  1 a 1 wreg ]
 [v CrcControlCmt2300@control_reg control_reg `uc  1 a 1 41 ]
-"186
+"189
 } 0
 "86
 [v _GotoNewModeCmt2300 GotoNewModeCmt2300 `(uc  1 e 1 0 ]
@@ -585,13 +610,13 @@
 [v ReadRegistrCmt2300@addr addr `uc  1 a 1 0 ]
 "79
 } 0
-"118 F:\projekt\Garant433\TestNewDevice\LibCMT2300A_pic\LibCMT2300A_221128_RX.X\mainLibCmt2300A.c
+"124 F:\projekt\Garant433\TestNewDevice\LibCMT2300A_pic\LibCMT2300A_221128_RX.X\mainLibCmt2300A_RX.c
 [v _myLoIsr myLoIsr `IIL(v  1 e 1 0 ]
 {
-"143
+"149
 } 0
-"112
+"118
 [v _myHiIsr myHiIsr `IIH(v  1 e 1 0 ]
 {
-"116
+"122
 } 0

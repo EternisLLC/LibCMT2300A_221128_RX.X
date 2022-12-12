@@ -1,5 +1,5 @@
 
-# 1 "mainLibCmt2300A.c"
+# 1 "LibCmt2300_RX.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -3682,47 +3682,8 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-
-# 10 "SetConfigBitsPic18f25k20.h"
-#pragma config FOSC = HSPLL , FCMEN = OFF, IESO = ON
-
-#pragma config PWRT = OFF, BOREN = OFF, BORV = 22
-
-#pragma config WDTEN = OFF, WDTPS = 1024
-
-#pragma config CCP2MX = PORTC, PBADEN = OFF, LPT1OSC = OFF, HFOFST = OFF, MCLRE = ON
-
-#pragma config STVREN = OFF, LVP = OFF, XINST = OFF, DEBUG = ON
-
-#pragma config CP0 = OFF, CP1 = OFF, CP2 = OFF, CP3 = OFF
-
-#pragma config CPB = OFF, CPD = OFF
-
-#pragma config WRT0 = OFF, WRT1 = OFF, WRT2 = OFF, WRT3 = OFF
-
-#pragma config WRTC = OFF, WRTB = OFF, WRTD = OFF
-
-#pragma config EBTR0 = OFF, EBTR1 = OFF, EBTR2 = OFF, EBTR3 = OFF
-
-#pragma config EBTRB = OFF
-
 # 76 "ConfigPinsLibCmt2300A.h"
 void InitPinsCMT2300(void);
-
-# 7 "InitProcessor.h"
-typedef struct {
-unsigned char _1ms :1;
-unsigned char _10ms :1;
-unsigned char _100ms :1;
-unsigned char _1s :1;
-}interval_t;
-extern unsigned char Counter1ms;
-extern unsigned char Counter10ms;
-extern unsigned char Counter100ms;
-
-extern interval_t Interval;
-
-void ProcessorInit(void);
 
 # 74 "LibCmt2300.h"
 extern unsigned char ModeCmt2300;
@@ -3783,122 +3744,272 @@ void WriteFifoCmt2300(unsigned char * data, unsigned char counter);
 void WritePktLength(unsigned char length);
 void WriteNodeId(unsigned char room);
 
-# 15 "mainLibCmt2300A.c"
-unsigned char TempAddr = 0;
-unsigned char TempData = 0;
+# 8 "LibCmt2300_RX.c"
+unsigned char ModeCmt2300 = 0;
+unsigned char RxFifoCmt2300[32]= {0,0,0,0,0,0,0};
 
-unsigned char CounterMs = 0;
+unsigned char TxFifoCmt2300[32] = {0x01,0x05,0x30,0x45,0x00,0x60,0x00,0x02,0x10};
 
+void WriteRegistrCmt2300(unsigned char addr, unsigned char data){
+unsigned int temp;
+unsigned int mask = 0x8000;
+unsigned char i;
+temp = (unsigned int)(addr & 0x7F);
+temp = temp << 8;
+temp = temp + data;
+TRISCbits.TRISC5 = 0;
+LATBbits.LATB1 = 0;
+if((mask & temp)){
+LATCbits.LATC5 = 1;
+}else{
+LATCbits.LATC5 = 0;
+}
+for(i = 0; i < 16; i++){
+LATCbits.LATC3 = 1;
+mask = (unsigned int)(mask>>1);
+LATCbits.LATC3 = 0;
+if((mask & temp)){
+LATCbits.LATC5 = 1;
+}else{
+LATCbits.LATC5 = 0;
+}
+}
+LATCbits.LATC5 = 0;
+LATBbits.LATB1 = 1;
+}
+unsigned char ReadRegistrCmt2300(unsigned char addr){
+unsigned char data = 0;
+unsigned char mask = 0x80;
+unsigned char i;
+data = (unsigned char)(addr | 0x80);
+TRISCbits.TRISC5 = 0;
+LATBbits.LATB1 = 0;
+if((mask & data)){
+LATCbits.LATC5 = 1;
+}else{
+LATCbits.LATC5 = 0;
+}
+for(i = 0; i < 7; i++){
+LATCbits.LATC3 = 1;
+mask = (unsigned char)(mask>>1);
+LATCbits.LATC3 = 0;
+if((mask & data)){
+LATCbits.LATC5 = 1;
+}else{
+LATCbits.LATC5 = 0;
+}
+}
+LATCbits.LATC3 = 1;
+TRISCbits.TRISC5 = 1;
+LATCbits.LATC3 = 0;
+data = 0;
+mask = 0x80;
+for(i = 0; i < 8; i++){
+LATCbits.LATC3 = 1;
+if(PORTCbits.RC5){
+data = (unsigned char)(mask | data);
+}
+LATCbits.LATC3 = 0;
+mask = (unsigned char)(mask>>1);
+}
+LATCbits.LATC5 = 0;
+TRISCbits.TRISC5 = 0;
+LATBbits.LATB1 = 1;
+return data;
+}
+unsigned char CheckModeCmt2300(void){
+unsigned char temp;
+temp = ReadRegistrCmt2300(0x61);
+return (unsigned char)(temp & 0x0F);
+}
 
-
-
-void low_priority interrupt myLoIsr(void);
-void high_priority interrupt myHiIsr(void);
-void main(void) {
-ProcessorInit();
-
-# 40
-while(!Interval._1s);
-Interval._1s = 0;
-
+unsigned char GotoNewModeCmt2300(unsigned char mode){
+unsigned char temp;
+if(mode == 0xFF){
 WriteRegistrCmt2300(0x7F, 0xFF);
-while(!Interval._1s);
-Interval._1s = 0;
-ModeCmt2300 = CheckModeCmt2300();
-while(!Interval._1s);
-Interval._1s = 0;
-if(ModeCmt2300 == 1){
-WriteRegistrCmt2300(0x60, 0x02);
+return 0;
 }
-while(!Interval._1s);
-Interval._1s = 0;
-ModeCmt2300 = CheckModeCmt2300();
-if(ModeCmt2300 == 0x02){
-
-InitCmt2300();
-ModeCmt2300 = GotoNewModeCmt2300(0x01);
-ModeCmt2300 = GotoNewModeCmt2300(0x02);
+switch(mode){
+case 0x01:
+temp = 0x10;
+break;
+case 0x02:
+temp = 0x02;
+break;
+case 0x03:
+temp = 0x04;
+break;
+case 0x04:
+temp = 0x20;
+break;
+case 0x05:
+temp = 0x08;
+break;
+case 0x06:
+temp = 0x40;
+break;
+default:
+temp = CheckModeCmt2300();
+return temp;
+break;
+}
+WriteRegistrCmt2300(0x60, temp);
+temp = CheckModeCmt2300();
+while(temp != mode){
+temp = CheckModeCmt2300();
+}
+return temp;
 }
 
+const unsigned char ValueCMTBank[12] = {0x00,0x66,0xEC,0x1C,0xF0,0x80,0x14,0x08,0x91,0x02,0x02,0xD0};
+
+const unsigned char ValueSistemBank[12] = {0xAE,0xE0,0x35,0x00,0x00,0xF4,0x10,0xE2,0x42,0x20,0x00,0x81};
+
+
+
+
+const unsigned char ValueFrequencyBank[8] = {0x44,0x64,0x9E,0x15,0x44,0x4E,0xEC,0x14};
+
+const unsigned char ValueDataRateBank[24] = {0x2A,0x83,0x11,0x10,0xA2,0x13,0x0C,0x0A,0x9F,0x5A, 0x29,0x29,0xC0,0xA5,0x02,0x53,0x18,0x00,0xB4,0x00, 0x00,0x01,0x00,0x00};
+
+# 137
+const unsigned char ValueBasebandBank[29] = {0x22,0x04,0x00,0x55,0x02,0x00,0x00,0x00,0x00,0x00,
+0x00,0x91,0xD3,0x05,0x1F,0x11,0x00,0x00,0x00,0x00,
+0x01,0x00,0x00,0x64,0xFF,0x02,0x00,0x1F,0x0A};
+
+const unsigned char ValueTXBank[11] = {0x70,0x9A,0x0C,0x00,0x03,0x50,0x00,0x1F,0x04,0x3F,0x7F};
+
+void InitCmtBanks(unsigned char addr,unsigned char count,const unsigned char * value){
+unsigned char i = 0;
+unsigned char startAddr = addr;
+for(i = 0; i < count; i ++){
+WriteRegistrCmt2300(startAddr,*value);
+startAddr ++;
+value ++;
+}
+}
+CusIoSelBits ValueCusIoSel;
+void InitGpioCmt2300(void){
+ValueCusIoSel.gpio1_sel = 1;
+ValueCusIoSel.gpio2_sel = 1;
+ValueCusIoSel.gpio3_sel = 0;
+WriteRegistrCmt2300(0x65,(unsigned char)ValueCusIoSel.ByteIO);
+}
+
+
+CusIntEnBits ValueCusIntEn;
+CusIntCtlBits ValueCusInt1Ctl;
+CusIntCtlBits ValueCusInt2Ctl;
+void InitInterruptCmt2300(void){
+unsigned char temp;
+ValueCusIntEn.sl_tmo = 0;
+ValueCusIntEn.rx_tmo = 0;
+ValueCusIntEn.tx_done = 1;
+ValueCusIntEn.preamb_ok = 0;
+ValueCusIntEn.sync_ok = 0;
+ValueCusIntEn.node_ok = 0;
+ValueCusIntEn.crc_ok = 0;
+ValueCusIntEn.pkt_done = 1;
+
+WriteRegistrCmt2300(0x68,(unsigned char)ValueCusIntEn.ByteINT);
+temp = ReadRegistrCmt2300(0x68);
+
+ValueCusInt1Ctl.INT_SEL = 0b11001;
+ValueCusInt1Ctl.INT_POLAR = 0;
+WriteRegistrCmt2300(0x66,(unsigned char)ValueCusInt1Ctl.ByteIntCTL);
+
+ValueCusInt2Ctl.INT_SEL = 0b01010;
+WriteRegistrCmt2300(0x67,(unsigned char)ValueCusInt2Ctl.ByteIntCTL);
+
+InitGpioCmt2300();
+}
+void CrcControlCmt2300(unsigned char control_reg){
+WriteRegistrCmt2300(0x4C,control_reg);
+}
+void NodeIdControlCmt2300(unsigned char control_reg){
+WriteRegistrCmt2300(0x47,control_reg);
+}
+void InitCmt2300(void){
+unsigned char temp;
+InitCmtBanks(0x00,12,ValueCMTBank);
+InitCmtBanks(0x0C,12,ValueSistemBank);
+InitCmtBanks(0x18,8,ValueFrequencyBank);
+InitCmtBanks(0x20,24,ValueDataRateBank);
+InitCmtBanks(0x38,29,ValueBasebandBank);
+InitCmtBanks(0x55,11,ValueTXBank);
 __nop();
-ModeCmt2300 = GotoNewModeCmt2300(0x04);
-__nop();
-
-__nop();
-
-__nop();
-
-TempData = ReadRegistrCmt2300(0x6E);
-
-WriteRegistrCmt2300(0x69,0x01);
-WriteFifoCmt2300(TxFifoCmt2300, 9);
-TempData = ReadRegistrCmt2300(0x6E);
-__nop();
-WritePktLength(9);
-WriteNodeId(1);
-
-ModeCmt2300 = GotoNewModeCmt2300(0x06);
-
-
-__nop();
-WriteRegistrCmt2300(0x6C,0x03);
-while(1){
-if(Interval._1s){
-Interval._1s = 0;
-ModeCmt2300 = CheckModeCmt2300();
-if(ModeCmt2300 == 0x02){
-
-ModeCmt2300 = GotoNewModeCmt2300(0x03);
-_delay((unsigned long)((350)*(32000000/4000000.0)));
-ModeCmt2300 = GotoNewModeCmt2300(0x05);
-LATAbits.LATA2 = !LATAbits.LATA2;
-}
-}
-if(Interval._100ms){
-TempData = ReadRegistrCmt2300(0x6E);
-if(TempData){
+InitInterruptCmt2300();
+NodeIdControlCmt2300(0);
+CrcControlCmt2300(0);
 __nop();
 }
-TempData = (TempData & 0x78);
-if(TempData){
-__nop();
-WriteRegistrCmt2300(0x6C , 0x02);
-LATAbits.LATA1 = !LATAbits.LATA1;
-}
-Interval._100ms = 0;
-}
-}
-return;
-}
-void high_priority interrupt myHiIsr(void) {
 
-INTCONbits.INT0IF = 0;
-LATBbits.LATB2 = !LATBbits.LATB2;
+unsigned char ReadByteFifoCmt2300(void){
+unsigned char data = 0;
+unsigned char mask = 0x80;
+unsigned char i;
+LATBbits.LATB3 = 0;
+data = 0;
+mask = 0x80;
+for(i = 0; i < 1; i++);
+for(i = 0; i < 8; i++){
+LATCbits.LATC3 = 1;
+if(PORTCbits.RC5){
+data = (unsigned char)(mask | data);
+}
+LATCbits.LATC3 = 0;
+mask = (unsigned char)(mask>>1);
+}
+_delay((unsigned long)((2)*(32000000/4000000.0)));
+LATBbits.LATB3 = 1;
+return data;
+}
+void ReadFifoCmt2300(unsigned char* data, unsigned char counter){
+unsigned char i;
+TRISCbits.TRISC5 = 1;
+LATCbits.LATC3 = 0;
+for(i = 0; i < counter; i++){
+*data = ReadByteFifoCmt2300();
+data ++;
+_delay((unsigned long)((4)*(32000000/4000000.0)));
+}
+TRISCbits.TRISC5 = 0;
 }
 
-void low_priority interrupt myLoIsr(void) {
-if(PIE1bits.TMR2IE && PIR1bits.TMR2IF){
-PIR1bits.TMR2IF = 0;
-if(Counter1ms){
-Counter1ms --;
-if(!Counter1ms){
-Counter1ms = 10;
-Interval._10ms = 1;
-if(Counter10ms){
-Counter10ms --;
-if(!Counter10ms){
-Counter10ms = 10;
-Interval._100ms = 1;
-if(Counter100ms){
-Counter100ms --;
-if(!Counter100ms){
-Counter100ms = 10;
-Interval._1s = 1;
+void WriteByteFifoCmt2300(unsigned char data){
+unsigned int temp;
+unsigned int mask = 0x80;
+unsigned char i;
+temp = data;
+LATBbits.LATB3 = 0;
+for(i = 0; i < 1; i++);
+for(i = 0; i < 8; i++){
+LATCbits.LATC3 = 1;
+mask = (unsigned int)(mask>>1);
+LATCbits.LATC3 = 0;
+if((mask & temp)){
+LATCbits.LATC5 = 1;
+}else{
+LATCbits.LATC5 = 0;
 }
 }
+_delay((unsigned long)((2)*(32000000/4000000.0)));
+LATBbits.LATB3 = 1;
+}
+
+void WriteFifoCmt2300(unsigned char * data, unsigned char counter){
+unsigned char i;
+TRISCbits.TRISC5 = 0;
+LATCbits.LATC3 = 0;
+for(i = 0; i < counter; i++){
+WriteByteFifoCmt2300(*data);
+data ++;
+_delay((unsigned long)((4)*(32000000/4000000.0)));
 }
 }
+void WritePktLength(unsigned char length){
+WriteRegistrCmt2300(0x46,length);
 }
-}
-}
+void WriteNodeId(unsigned char room){
+WriteRegistrCmt2300(0x48,room);
 }

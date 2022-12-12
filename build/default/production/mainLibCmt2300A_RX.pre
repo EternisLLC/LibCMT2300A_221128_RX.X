@@ -1,5 +1,5 @@
 
-# 1 "mainLibCmt2300A.c"
+# 1 "mainLibCmt2300A_RX.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -3783,7 +3783,7 @@ void WriteFifoCmt2300(unsigned char * data, unsigned char counter);
 void WritePktLength(unsigned char length);
 void WriteNodeId(unsigned char room);
 
-# 15 "mainLibCmt2300A.c"
+# 15 "mainLibCmt2300A_RX.c"
 unsigned char TempAddr = 0;
 unsigned char TempData = 0;
 
@@ -3862,8 +3862,12 @@ __nop();
 TempData = (TempData & 0x78);
 if(TempData){
 __nop();
+WriteRegistrCmt2300(0x69,0);
+ReadFifoCmt2300(RxFifoCmt2300, 32);
 WriteRegistrCmt2300(0x6C , 0x02);
 LATAbits.LATA1 = !LATAbits.LATA1;
+
+__nop();
 }
 Interval._100ms = 0;
 }
